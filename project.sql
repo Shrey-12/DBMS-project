@@ -1,7 +1,8 @@
 -- Active: 1671709889479@@127.0.0.1@3306@realestate
 create database realestate;
 use realestate;
-drop table sells;
+drop table buys;
+
 create table property(pid integer , house integer, street varchar(50), area varchar(50), pincode numeric(4,0),area_sqft int, avail int, market_in date, rent_price integer, sell_price integer, no_bedrooms integer, build_year integer, is_sold boolean, is_rented boolean, primary key (pid)); 
 create table agent(agent_id integer, password varchar(50), aname varchar(50), contact numeric(10,0),area varchar(50), rating numeric(2,1), no_of_rentals integer, no_of_sold integer, rentals_sales bigint, sold_sales bigint, base_commission numeric(2,1), primary key (agent_id));
 create table buyer(bid integer, password varchar(50), bname varchar(50),contact numeric(10),  area varchar(50), budget bigint, bought boolean, primary key(bid));
@@ -10,19 +11,18 @@ create table seller(sid integer, password varchar(50),  sname varchar(50),contac
 create table _admin(username varchar(50), password varchar(50), primary key(username));
 
 create table sells(pid integer, agent_id integer, primary key(agent_id, pid), foreign key (pid) references property(pid));
-create table buys(bid integer, pid integer,year_sold integer, market_out date, primary key(bid, pid));
+create table buys(pid integer, bid integer,year_sold integer, market_out date, primary key(bid, pid));
 create table owns(sid integer, pid integer,current_owner int, primary key(sid, pid));
 select * from buys;
 
- 
 insert into property values (16250,40,"LAUREL ST","Asylum Hill",667,1486,0,'2020-06-25',1300,792300,1,1961,0,1),
 (14346,1,"ANN UCCELLO ST","Barry Square",2913,3275,1,'2021-01-13',2200,619800,3,2000,0,0),
-(10744,11,"WARREN ST","Behind the Rocks",2116,1907,1,'2019-08-30',3100,445000,2,1896,0,0),
-(16674,41,"BEACON ST","Blue Hills",2913,2569,0,'2022-02-14',4000,982100,3,1883,0,1),
-(20062,27,"VICTORIA RD","Blue Hills",2653,3898,0,'2021-07-11',4900,745600,2,1924,0,0),
-(21621,44,"AMHERST ST","Blue Hills",2704,2145,1,'2019-12-07',5800,268900,2,1957,0,0),
+(10744,11,"WARREN ST","Behind the Rocks",2116,1907,1,'2019-08-30',3100,445000,2,2003,0,0),
+(16674,41,"BEACON ST","Blue Hills",2913,2569,0,'2022-02-14',4000,982100,3,2021,0,1),
+(20062,27,"VICTORIA RD","Blue Hills",2653,3898,0,'2021-07-11',4900,745600,2,2020,0,0),
+(21621,44,"AMHERST ST","Blue Hills",2704,2145,1,'2019-12-07',5800,268900,2,2018,1,0),
 (24848,42,"SHERBROOKE AVE","Behind the Rocks",6105,2947,1,'2020-11-17',6700,916700,2,1971,0,0),
-(422,42,"PEMBROKE ST","Behind the Rocks",1439,3582,0,'2022-01-04',7600,536800,2,1927,0,0),
+(422,42,"PEMBROKE ST","Behind the Rocks",1439,3582,0,'2022-01-04',7600,536800,2,2021,0,0),
 (23059,27,"EATON ST","Behind the Rocks",2661,1325,0,'2020-02-09',8500,733400,4,1991,0,0),
 (23495,33,"MAIN ST","North Meadows",2913,1754,1,'2021-10-22',9400,851900,2,1926,0,0),
 (21390,57,"WESTBOURNE PKWY","Barry Square",1731,2736,1,'2022-03-16',10300,373200,3,1921,0,0),
@@ -30,14 +30,14 @@ insert into property values (16250,40,"LAUREL ST","Asylum Hill",667,1486,0,'2020
 (13537,11,"BROADVIEW TER","Barry Square",3805,3158,0,'2019-09-21',1900,998500,4,1927,0,0),
 (5155,19,"SOUTH WHITNEY ST","Asylum Hill",6106,2279,1,'2021-04-30',2800,405200,2,2003,0,0),
 (13924,8,"TOWER AVE","Asylum Hill",1953,2698,0,'2020-09-26',2600,689700,4,1937,0,1),
-(10752,36,"FREEMAN ST","Asylum Hill",6114,1845,0,'2019-12-01',2250,247500,2,1922,0,1),
+(10752,36,"FREEMAN ST","Asylum Hill",6114,1845,0,'2019-12-01',2250,247500,2,1922,0,0),
 (20121,8,"CHESHIRE ST","North Meadows",2203,2996,1,'2022-01-24',1550,768300,4,1916,0,0),
 (24199,47,"SUMMIT ST","North Meadows",6105,3641,1,'2019-11-09',1800,543600,2,1910,0,0),
 (13906,38,"CAPEN ST","North Meadows",2066,1412,0,'2020-05-14',2900,914200,2,1920,0,0),
 (16588,19,"MONTOWESE ST","Asylum Hill",3041,3369,1,'2021-07-19',2350,281400,3,1915,0,0),
 (8513,15,"FRASER PL","Asylum Hill",6155,2115,0,'2022-03-03',2050,482900,3,1996,0,0),
 (10990,36,"OWEN ST","Asylum Hill",3280,1927,1,'2021-02-15',3200,926800,1,1965,0,0),
-(13860,14,"WOODLAND ST","Barry Square",4338,2875,0,'2020-02-26',1700,697100,2,1963,0,1),
+(13860,14,"WOODLAND ST","Barry Square",4338,2875,0,'2022-02-26',1700,697100,2,2021,0,1),
 (3689,8,"HUDSON ST","Asylum Hill",6106,3312,1,'2019-09-15',2500,572400,2,1999,0,0),
 (21382,9,"GOODWIN CIR","Asylum Hill",5204,2548,1,'2021-11-28',3100,864900,3,2004,0,0);
 
@@ -116,19 +116,33 @@ insert into owns values
 (1289,3689,1),
 (1682,21382,1);
 
-insert into buyer values (1548,"BlueTulip23","Jameson Lee",9712358469,"Asylum Hill",900000,0),
+insert into buyer values (1548,"BlueTulip23","Jameson Lee",9712358469,"Asylum Hill",900000,1),
 (1694,"GreenApple98","Kaitlyn Turner",9287635121,"Behind the Rocks",600000,0),
-(1220,"HappyDog77","Benjamin Reed",9867412098,"Barry Square",400000,0),
-(1067,"SilverSpoon12","Madison Scott",9584731265,"Blue Hills",700000,0),
-(1263,"OrangeSunset45","Michaela Baker",9023651487,"Blue Hills",700000,0);
+(1220,"HappyDog77","Benjamin Reed",9867412098,"Barry Square",400000,1),
+(1067,"SilverSpoon12","Madison Scott",9584731265,"Blue Hills",700000,1),
+(1263,"OrangeSunset45","Michaela Baker",9023651487,"Blue Hills",700000,0),
+(1999,"Ownworld33","David John",9023651486,"Barry Square",600000,0),
+(1098,"Lowhigh21","JohnHM",9023654487,"Behind the Rocks",500000,1),
+(1076,"Canwedance23","Michaela Barua",9023681487,"Asylum Hills",350000,1),
+(1852,"OrangeSunset45","Michaela Baker",9023651487,"Blue Hills",500000,0);
+
+insert into buys values(3689,1548,2023,"2023-01-25"),(21390,1967,2022,"2022-02-22"),(5155,1852,2023,"2023-01-02"),(10752,1,2023,"2023-02-03");
 
 insert into _admin values
 ("sindhu", "sindhu162"),
 ("shreya", "shreya195"),
-("sunidhi", "sunihi205"),
+("sunidhi", "sunidhi205"),
 ("pari", "pari139");
 
 
+#additional insertions
+INSERT INTO property (pid, house, street, area, pincode, area_sqft, avail, market_in, rent_price, sell_price, no_bedrooms, build_year, is_sold, is_rented)
+VALUES (13333, 123, 'Main St', 'Asylum hill', 1234, 1000, 0, '2000-01-01', 1000, 200000, 2, 1990, 1, 0),(16521,2,"Franklin Avenue","Barry Square",2913,3275,1,'1999-01-13',2200,619800,3,2000,1,0),
+(18909,3,"Farmington Avenue","Asylum Hill",2923,3285,0,'2003-01-13',2200,670000,3,2000,1,0),(19700,5,"Asylum Street","Blue Hills",3000,3265,0,'2002-01-13',2200,770000,3,2000,1,0),
+(19030,3,"Park Street","Blue Hills",3933,4285,0,'2004-01-13',2200,870000,3,2000,1,0);
+insert into sells values (13333, 1541),(18909,1541),(19700,1295),(19030,1698),(16521, 1967);
+insert into buyer values (1555,"Pinkred23","Jameson Lae",9782358469,"Asylum Hill",900000,1),(1239,"BlackTulip23","Jamoson Lee",9732358469,"Asylum Hill",900000,1);
+insert into buys values(13333, 1555, 2018, "2018-08-25"), (18909, 1239, 2018, "2018-08-21"), (16521, 1999, 2018, "2018-08-20"), (19700, 1239, 2018, "2018-08-21"), (19030, 1852, 2018, "2018-08-21");
 
 
 ALTER TABLE owns ADD CONSTRAINT FK_owns_property_pid FOREIGN KEY (pid) REFERENCES property(pid);
@@ -137,13 +151,83 @@ ALTER TABLE buys ADD CONSTRAINT FK_buys_property_pid FOREIGN KEY (pid) REFERENCE
 ALTER TABLE buys ADD CONSTRAINT FK_buys_buyer_bid FOREIGN KEY (bid) REFERENCES buyer(bid);
 ALTER TABLE sells ADD CONSTRAINT FK_sells_agent_id FOREIGN KEY (agent_id) REFERENCES agent(agent_id);
 
+#updates
 
-Select * from sells natural join property natural join agent;
-TER TABLE buys ADD CONSTRAINT FK_buys_property_pid FOREIGN KEY (pid) REFERENCES property(pid);
-ALTER TABLE buys ADD CONSTRAINT FK_buys_buyer_bid FOREIGN KEY (bid) REFERENCES buyer(bid);
+update property
+set
+	is_sold = 1
+where
+	pid = 10752;
+	
+update property
+set
+	is_sold = 1
+where
+	pid = 3689;
 
-ALTER TABLE sells ADD CONSTRAINT FK_sells_property_pid FOREIGN KEY (pid) REFERENCES property(pid);
-ALTER TABLE sells ADD CONSTRAINT FK_sells_agent_id FOREIGN KEY (agent_id) REFERENCES agent(agent_id);
+update property
+set
+	is_sold = 1
+where
+	pid = 5155;
 
-DESCRIBE sells;
+update property
+set
+	is_sold = 1
+where
+	pid = 21390;
 
+update buyer
+set
+	bought = 1
+where
+	bid = 1067;
+
+insert into  buys values(
+	21621,
+    1698
+    ,2018
+	,"2018-05-23");
+
+update property
+set
+	is_sold = 1
+where
+	pid = 21621;
+	
+/*check*/
+select * from property;
+select * from buyer;
+select * from  sells;
+select * from buys;
+select * from agent where area = "Barry Square";
+select pid, agent_id, sell_price from property natural join sells where property.pid = sells.pid and area ='Asylum hill' and sell_price<350000 and is_sold = 1;
+
+/*queries*/
+
+Select * from property where is_rented = 0 and build_year >=  2020;
+
+Select house, street, area, pincode from property where sell_price <= 800000 and sell_price >= 600000;
+
+Select  house, street, area, pincode from property  where area = 'Blue hills' and no_bedrooms >= 2 and sell_price >= 4000;
+
+with get_sell_price(a_id,sell_price1) as
+(
+	select agent_id, sum(sell_price) from buys natural join sells natural join property where year_sold = 2018 group by agent_id 
+)
+select a_id,sell_price1 from get_sell_price order by sell_price1 desc limit 0, 1 ;
+
+select * from property order by sell_price desc limit 0,1;
+
+select * from property order by rent_price desc limit 0,1;
+
+
+#select agent_id, avg(sell_price) from buys natural join sells natural join property where year_sold = 2018 group by agent_id ;
+with in_market(time_dur, a_id, s_price) as
+(
+	select datediff(market_out,market_in), agent_id, sell_price from buys natural join sells natural join property where year_sold = 2018
+)   
+select  a_id, avg(time_dur), avg(s_price) from in_market group by a_id;
+    
+    
+    

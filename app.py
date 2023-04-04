@@ -2,13 +2,15 @@ from flask import Flask, redirect, url_for, render_template, request, session, f
 from flask_sqlalchemy import SQLAlchemy
 from datetime import timedelta, date
 from markupsafe import escape
+from config.sqlConfig import MYSQLCONFIG
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 app.secret_key = "hello"
 app.permanent_session_lifetime = timedelta(minutes=5)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:13102003@localhost:3306/realestate'
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://" + \
+    MYSQLCONFIG.user+":"+MYSQLCONFIG.password+"@localhost:3306/realestate"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
@@ -35,7 +37,7 @@ class Property(db.Model):
 @app.route("/")
 def home():
     home_og = Property.query.all()
-    return render_template('index_new.html', homes=home_og)
+    return render_template('index.html', homes=home_og)
 
 
 '''
@@ -85,4 +87,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8001)

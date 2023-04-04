@@ -6,16 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="css/assets/favicon.ico"
+      href="{{url_for('static',filename='favicon.ico')}}"
       type="image/x-icon"
     />
     <title>Roseville and Sacramento</title>
-    <link rel="stylesheet" href="css/lisiting.css" />
+    <style>
+      :root {
+        --background-url: url("{{ url_for('static', filename='pexels-vladimir-kudinov-36362.jpg') }}");
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='listing.css')}}"
+    />
   </head>
   <body>
     <div class="banner">
       <div class="navbar">
-        <img src="css/assets/icon.jpg" class="logo" />
+        <img src="{{url_for('static',filename='icon.jpg')}}" class="logo" />
         <ul>
           <li><a href="#">For Buyers / Tenants</a></li>
           <li><a href="#">For Owners</a></li>
@@ -111,43 +119,38 @@
             </h2>
           </div>
           <div class="grid-container">
-              <div class="grid-items" onclick="location.href='www.google.com';">
-                <div class="fill">
-                  <img src="css/assets/listing/house1.jpg" class="house" />
-                </div>
-                <table class="house-data" cellspacing="0">
-                  <tr>
-                    <td id="row1" colspan="3">
-                      5575 Cavitt Stallman Road, Granite Bay, CA 95746
-                    </td>
-                  </tr>
-                  <tr id="row2">
-                    <td>$19,995,500</td>
-                    <td>3,063</td>
-                    <td>Rent</td>
-                  </tr>
-                  <tr id="row3">
-                    <td>Price</td>
-                    <td>Area in sq ft</td>
-                    <td>Availability</td>
-                  </tr>
-                  <tr id="row4">
-                    <td colspan="2">Agent Details : Anant</td>
-                    <td><button class="Agent-button">Connect Now</button></td>
-                  </tr>
-                  
-                </table>
-              </div>
-            <div class="grid-items">
+            {% for home in homes%}
+            <div class="grid-items" onclick="location.href='www.google.com';">
               <div class="fill">
-                <img src="css/assets/listing/house2.jpg" class="house" />
+                <img
+                  src="{{url_for('static',filename='house3.jpg')}}"
+                  class="house"
+                />
               </div>
+              <table class="house-data" cellspacing="0">
+                <tr>
+                  <td id="row1" colspan="3">
+                    {{home.house}}, {{home.street}}, {{home.area}}
+                  </td>
+                </tr>
+
+                <tr id="row2">
+                  <td>$ {{home.sell_price}}</td>
+                  <td>{{home.area_sqft}} sq.ft.</td>
+                  <td>{%if home.avail == 0%} Rent {%else%} Sell {%endif%}</td>
+                </tr>
+                <tr id="row3">
+                  <td>Price</td>
+                  <td>Area</td>
+                  <td>Availability</td>
+                </tr>
+                <tr id="row4">
+                  <td colspan="2">Agent Details : Anant</td>
+                  <td><button class="Agent-button">Connect Now</button></td>
+                </tr>
+              </table>
             </div>
-            <div class="grid-items">
-              <div class="fill">
-                <img src="css/assets/listing/house3.jpg" class="house" />
-              </div>
-            </div>
+            {%endfor%}
           </div>
         </div>
       </div>
@@ -157,33 +160,3 @@
     <div class="foot">end of website</div>
   </footer>
 </html>
-<!-- 
-{% for home in homes%}
-              <div class="grid-items" onclick="location.href='www.google.com';">
-                <div class="fill">
-                  <img src={{home[url]}} class="house" />
-                </div>
-                <table class="house-data" cellspacing="0">
-                  <tr>
-                    <td id="row1" colspan="3">
-                      home[address]
-                    </td>
-                  </tr>
-                  <tr id="row2">
-                    <td>{home.sell_price}</td>
-                    <td>home[area]</td>
-                    <td>home[Availability]</td>
-                  </tr>
-                  <tr id="row3">
-                    <td>Price</td>
-                    <td>Area in sq ft</td>
-                    <td>Availability</td>
-                  </tr>
-                  <tr id="row4">
-                    <td colspan="2">Agent Details : home[Agent]</td>
-                    <td><button class="Agent-button">Connect Now</button></td>
-                  </tr>
-                  
-                </table>
-              </div>
-              {%endfor%} -->
