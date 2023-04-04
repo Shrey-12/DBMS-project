@@ -1,3 +1,3 @@
 class MYSQLCONFIG:
-    user ="----"
-    password="----"
+    user ="shreya"
+    password="shreya123_"
