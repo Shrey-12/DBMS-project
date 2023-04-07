@@ -1,0 +1,3 @@
+class MYSQLCONFIG:
+    user ="-----"
+    password="-----"
