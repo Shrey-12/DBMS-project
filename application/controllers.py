@@ -4,7 +4,6 @@ from flask import render_template
 
 @app.route("/", methods = ["GET"])
 def home():
-    print("Hello")
     home_og = Property.query.all()
     return render_template('index.html', homes=home_og)
 
