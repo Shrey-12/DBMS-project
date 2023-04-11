@@ -6,5 +6,5 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://" + \
-    MYSQLCONFIG.user+":"+MYSQLCONFIG.password+"@localhost:3306/realestate"
+    MYSQLCONFIG.user+":"+MYSQLCONFIG.password+"@localhost:3306/RealEstate"
     SQLALCHEMY_TRACK_MODIFICATIONS = False

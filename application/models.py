@@ -1,13 +1,14 @@
 from application.database import db
 
 class Property(db.Model):
+    __tablename__='property'
     pid = db.Column(db.Integer, primary_key=True)
-    house = db.Column(db.Integer)
+    house_no = db.Column(db.Integer)
     street = db.Column(db.String(50))
     area = db.Column(db.String(50))
     pincode = db.Column(db.Numeric(4))
     area_sqft = db.Column(db.Integer)
-    avail = db.Column(db.Integer)
+    avail = db.Column(db.String)
     market_in = db.Column(db.Date)
     rent_price = db.Column(db.Integer)
     sell_price = db.Column(db.Integer)
