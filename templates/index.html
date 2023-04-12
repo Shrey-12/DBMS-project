@@ -44,9 +44,9 @@
             <div class="form-group">
               <label for="location">Location:</label>
               <select id="bedrooms" name="bedrooms">
-                <!-- {% for areas in loc%} -->
-                <option value="1">pp</option>
-                <!-- {%end for%} -->
+                {% for areas in loc%}
+                <option value="{{areas.area}}">{{areas.area}}</option>
+                {%endfor%}
               </select>
             </div>
             <div class="form-group">
@@ -60,21 +60,19 @@
             <div class="form-group">
               <label for="bedrooms">Bedrooms:</label>
               <select id="bedrooms" name="bedrooms">
-                <option value="1">1+</option>
-                <option value="2">2+</option>
-                <option value="3">3+</option>
-                <option value="4">4+</option>
-                <option value="5">5+</option>
+                {% for areas in loc1%}
+                <option value="{{areas.no_bedrooms}}">
+                  {{areas.no_bedrooms}}
+                </option>
+                {%endfor%}
               </select>
             </div>
             <div class="form-group">
               <label for="area">Area:</label>
               <select id="area" name="area">
-                <option value="1">1 sqft</option>
-                <option value="2">2 sqft</option>
-                <option value="3">3 sqft</option>
-                <option value="4">4 sqft</option>
-                <option value="5">5 sqft</option>
+                {% for areas in loc2%}
+                <option value="{{areas.area_sqft}}">{{areas.area_sqft}}</option>
+                {%endfor%}
               </select>
             </div>
             <div class="form-group">

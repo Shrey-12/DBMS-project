@@ -14,7 +14,19 @@ def home():
         "SELECT * FROM property natural join sells natural join agent ")
     results = db.session.execute(home_og).fetchall()
 
-    return render_template('index.html', homes=results)
+    search_query1 = text(
+        "SELECT distinct area FROM property ")
+    results1 = db.session.execute(search_query1).fetchall()
+
+    search_query2 = text(
+        "SELECT distinct no_bedrooms FROM property ")
+    results2 = db.session.execute(search_query2).fetchall()
+
+    search_query3 = text(
+        "SELECT distinct area_sqft FROM property ")
+    results3 = db.session.execute(search_query3).fetchall()
+
+    return render_template('index.html', homes=results, loc=results1, loc1=results2, loc2=results3)
 
 
 '''
