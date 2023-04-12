@@ -1,12 +1,20 @@
 from flask import current_app as app
 from application.models import Property
 from flask import render_template
+from application.database import db
+from sqlalchemy import text
 
-@app.route("/", methods = ["GET"])
+
+@app.route("/", methods=["GET"])
 def home():
     print("Hello")
-    home_og = Property.query.all()
-    return render_template('index.html', homes=home_og)
+    '''home_og = Property.query.all()'''
+
+    home_og = text(
+        "SELECT * FROM property natural join sells natural join agent ")
+    results = db.session.execute(home_og).fetchall()
+
+    return render_template('index.html', homes=results)
 
 
 '''
@@ -53,4 +61,3 @@ def logout():
     session.pop("user", None)
 
     return redirect(url_for("login")) '''
-

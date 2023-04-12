@@ -23,7 +23,10 @@
   <body>
     <div class="banner">
       <div class="navbar">
-        <img src="{{url_for('static',filename='images/icon.jpg')}}" class="logo" />
+        <img
+          src="{{url_for('static',filename='images/icon.jpg')}}"
+          class="logo"
+        />
         <ul>
           <li><a href="#">For Buyers / Tenants</a></li>
           <li><a href="#">For Owners</a></li>
@@ -41,11 +44,9 @@
             <div class="form-group">
               <label for="location">Location:</label>
               <select id="bedrooms" name="bedrooms">
-                <option value="1">popular</option>
-                <option value="2">popularstr</option>
-                <option value="3">popularst</option>
-                <option value="4">populars</option>
-                <option value="5">popularstreet15+</option>
+                <!-- {% for areas in loc%} -->
+                <option value="1">pp</option>
+                <!-- {%end for%} -->
               </select>
             </div>
             <div class="form-group">
@@ -145,7 +146,7 @@
                   <td>Availability</td>
                 </tr>
                 <tr id="row4">
-                  <td colspan="2">Agent Details : Anant</td>
+                  <td colspan="2">Agent Details : {{home.agent_name}}</td>
                   <td><button class="Agent-button">Connect Now</button></td>
                 </tr>
               </table>
