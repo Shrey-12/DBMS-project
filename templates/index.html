@@ -12,18 +12,18 @@
     <title>Roseville and Sacramento</title>
     <style>
       :root {
-        --background-url: url("{{ url_for('static', filename='pexels-vladimir-kudinov-36362.jpg') }}");
+        --background-url: url("{{ url_for('static', filename='images/pexels-rene-asmussen-1358853.jpg') }}");
       }
     </style>
     <link
       rel="stylesheet"
-      href="{{url_for('static',filename='listing.css')}}"
+      href="{{url_for('static',filename='css/listing.css')}}"
     />
   </head>
   <body>
     <div class="banner">
       <div class="navbar">
-        <img src="{{url_for('static',filename='icon.jpg')}}" class="logo" />
+        <img src="{{url_for('static',filename='images/icon.jpg')}}" class="logo" />
         <ul>
           <li><a href="#">For Buyers / Tenants</a></li>
           <li><a href="#">For Owners</a></li>
@@ -123,7 +123,7 @@
             <div class="grid-items" onclick="location.href='www.google.com';">
               <div class="fill">
                 <img
-                  src="{{url_for('static',filename='house3.jpg')}}"
+                  src="{{url_for('static',filename='images/house3.jpg')}}"
                   class="house"
                 />
               </div>
