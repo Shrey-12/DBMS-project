@@ -1,167 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="{{url_for('static',filename='favicon.ico')}}"
-      type="image/x-icon"
-    />
-    <title>Roseville and Sacramento</title>
-    <style>
-      :root {
-        --background-url: url("{{ url_for('static', filename='images/background-house.jpg') }}");
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="{{url_for('static',filename='css/listing.css')}}"
-    />
-  </head>
-  <body>
-    <div class="banner">
-      <div class="navbar">
-        <img
-          src="{{url_for('static',filename='images/icon.jpg')}}"
-          class="logo"
-        />
-        <ul>
-          <li><a href="#">For Buyers / Tenants</a></li>
-          <li><a href="/owners">For Owners</a></li>
-          <li><a href="#">For Agents</a></li>
-          <li><a href="#">For Agency</a></li>
-          <li><a href="#">About Us</a></li>
-        </ul>
-      </div>
-      <div class="heading">
-        <span>Serving Greater</span>
-        <h1>Roseville Greenwich</h1>
-        <div class="quick-search-widget">
-          <h1>Find Your Dream Home</h1>
-          <form method = "POST" action = "/submit">
-            <div class="form-group">
-              <label for="location">Location:</label>
-              <select id="location" name="location">
-                {% for areas in loc%}
-                <option value="{{areas.area}}">{{areas.area}}</option>
-                {%endfor%}
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="price">Price Range:</label>
-              <select id="price" name="price">
-                <option value="1000-3000">$1,000 - $3,000</option>
-                <option value="3000-5000">$3,000 - $5,000</option>
-                <option value="5000-7000">$5,000 - $7,000</option>
-                <option value="7000-11000">$7,000 - $11,000</option>
-                <option value="0-500000">$300,000 - $500,000</option>
-                <option value="500000-800000">$500,000 - $800,000</option>
-                <option value="800000-1000000">$800,000 - $10,000,000 </option>
-              </select>
-            </div>
-           
-            <div class="form-group">
-              <label for="bedrooms">Bedrooms:</label>
-              <select id="bedrooms" name="bedrooms">
-                {% for areas in loc1%}
-                <option value="{{areas.no_bedrooms}}">
-                  {{areas.no_bedrooms}}
-                </option>
-                {%endfor%}
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="area">Area:</label>
-              <select id="area" name="area">
-                <option value="1000-1500">1000 - 1500</option>
-                <option value="1500 - 2000">1500 - 2000</option>
-                <option value="2000 - 2500">2000 - 2500</option>
-                <option value="2500 - 3000">2500 - 3000</option>
-                <option value="3000 - 4000">3000 - 4000</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="Availability">Availability:</label>
-              <select id="Availability" name="Availability">
-                <option value="rent">rent</option>
-                <option value="sale">sale</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <button type="submit">Search</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="bottom-half">
-      <div class="wrap">
-        <div class="popular-search">
-          <h2 class="section-heading">
-            Popular
-            <span>Searches</span>
-          </h2>
-          <ul class="listing-class">
-            <li class="listing-item">
-              <a class="title" href="/Asylum Hill">Asylum Hill</a>
-            </li>
-            <li class="listing-item">
-              <a class="title" href="/Barry Square">Barry Square</a>
-            </li>
-            <li class="listing-item">
-              <a class="title" href="/Blue Hills">Blue Hills</a>
-            </li>
-            
-          </ul>
-        </div>
-        <div class="featured-wrap">
-          <div class="featured-heading">
-            <h2 class="featured-h2">
-              Property
-              <span>Listing</span>
-            </h2>
-          </div>
-          <div class="grid-container">
-            {% for home in homes%}
-            <div class="grid-items" onclick="location.href='www.google.com';">
-              <div class="fill">
-                <img
-                  src="{{url_for('static',filename='images/house3.jpg') }}"
-                  class="house"
-                />
-              </div>
-              <table class="house-data" cellspacing="0">
-                <tr>
-                  <td id="row1" colspan="3">
-                    {{home.house_no}}, {{home.street}}, {{home.area}}
-                  </td>
-                </tr>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='css/login.css')  }}">
 
-                <tr id="row2">
-                  <td>$ {{home.sell_price}}</td>
-                  <td>{{home.area_sqft}} sq.ft.</td>
-                  <td>{{home.avail}}</td>
-                </tr>
-                <tr id="row3">
-                  <td>Price</td>
-                  <td>Area</td>
-                  <td>Availability</td>
-                </tr>
-                <tr id="row4">
-                  <td colspan="2">Agent Details : {{home.agent_name}}</td>
-                  <td><button class="Agent-button">Connect Now</button></td>
-                </tr>
-              </table>
-            </div>
-            {%endfor%}
-          </div>
+    <script src="https://kit.fontawesome.com/b6c75e90fc.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Paytone+One&family=Yatra+One&family=Zeyada&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <style>
+        :root {
+            --background-url: url("{{ url_for('static', filename='/images/loginBackground3.jpg')}}");
+        }
+    </style>
+    <title>Login page</title>
+</head>
+<body>
+
+    <section class="homescreen">
+        <div class="icon_container">
+            <div class="icons" id="agent">
+                <!-- <a href="login.html"><img src="images/agent.png" alt="Agent Icon"></a> -->
+                
+                <a href="login.html"><i class="fa-solid fa-user-tie"></i> </a>
+            <h2>AGENT</h2>
         </div>
-      </div>
+        <div class="icons" id="user">
+            <a href="houselisting.html"><i class="fa-solid fa-user"></i>></a>
+            <h2>USER </h2>
+        </div>
+        <div class="icons" id="estate">
+            <a href="agentoffice.html"><i class="fa-solid fa-users-line"></i></a>
+            <h2>ESTATE OFFICE</h2>
+        </div>     
     </div>
-  </body>
-  <footer>
-    <div class="foot">end of website</div>
-  </footer>
-</html>
+    </section>
+
+    
+    
+    <!-- <div class="login-page">
+
+        <div class="form">
+            <div class="company">
+                <h2>COMPANY NAME</h2>
+            </div>
+            <form class="login-form">
+                <h2>LOGIN</h2>
+                <input type="text" placeholder="Username" />
+                <input type="password" placeholder="Password" />
+                <button>login</button>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+    const agentIcon = document.getElementById("agent");
+    const userIcon = document.getElementById("user");
+    const estateIcon = document.getElementById("estate");
+    const loginPage = document.querySelector(".login-page");
+    
+    agentIcon.addEventListener("click", () => {
+    agentIcon.style.marginLeft = "-60%";
+    loginPage.style.display = "block";
+    });
+    
+    userIcon.addEventListener("click", () => {
+    userIcon.style.marginLeft = "-60%";
+    loginPage.style.display = "block";
+    });
+    
+    estateIcon.addEventListener("click", () => {
+    estateIcon.style.marginLeft = "-60%";
+    loginPage.style.display = "block";
+    });
+    </script> -->
+
+    <!-- <div class="box">
+        <div class="container">
+            <div class="header">
+                <h1>COMPANY NAME</h1>
+                <h2>Login</h2>
+            </div>
+        </div>
+
+        <div class="input-box"> 
+            <input type="text" class="input" placeholder="Username" id="" required>
+            <label for="">Username</label>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="text" class="input" placeholder="Password" id="" required>
+                    <label for="">Password</label>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="input-box">
+            <input type="submit" name="" id="" value="submit">
+        </div> 
+        
+        
+
+        <div class="forgotpass">     
+            <input type="checkbox" id="check">
+            <label for="check">Remember Me</label>
+            <label for=""><a href="#">Forgot Password?</a></label>
+        </div>
+   
+       
+    </div>
+     -->
+</body>
+</html> 

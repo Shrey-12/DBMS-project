@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css')  }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Noto+Sans&family=Noto+Sans+JP&family=Open+Sans:wght@500;700&family=PT+Sans&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --background-url: url("{{ url_for('static', filename='/images/test2.jpg')}}");
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-page">
+
+        <div class="form">
+            <div class="company">
+                <h2>ROSEVILLE GREENWICH</h2>
+            </div>
+            <form class="login-form">
+                <h2>Sign-in</h2>
+                <input type="text" placeholder="Username" />
+                <input type="password" placeholder="Password" />
+                <button>login</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

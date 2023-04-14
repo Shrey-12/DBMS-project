@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <!--                 Custom Css              -->
+    <!-- <link rel="stylesheet" href="css/agentsInfo.css"> -->
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/agentsInfo.css')  }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/responsive.css')  }}">
+
+    <!--                 box coins               -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+    <!--                 Body Main-Background            -->
+    <span class="main_bg"></span>
+
+
+    <!--                 Main-Container              -->
+    <div class="container">
+
+        <!--                 Header/Navbar               -->
+        <header>
+            <div class="Logo">
+                <figure><img src="{{url_for('static', filename='images/resized11.png')}}" alt="logo" width="40px" height="40px"></figure>
+                <span>Roseville Greenwich</span>
+            </div>
+        </header>
+
+
+        <!--                 User Main-Profile               -->
+        <section class="userProfile card">
+            <div class="profile">
+                <figure><img src="{{url_for('static', filename='images/agent2.jpg')}}"alt="profile" width="250px" height="250px"></figure>
+            </div>
+            <!-- <div class="stars">
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+            </div> -->
+        </section>
+
+
+        <!--                 Work & Skills Section               -->
+        <section class="work_skills card">
+
+            <!--                 Work Contaienr              -->
+            <div class="work">
+                <h1 class="heading"></h1>
+                <ul>
+
+                    <li>
+                        <h1 class="label">Name:</h1>
+                        <span class="info">Victoria Williams</span>
+                    </li>
+                    <li>
+                        <h1 class="label">Gender:</h1>
+                        <span class="info">Female</span>
+                    </li>
+                    <li>
+                        <h1 class="label">Birthday:</h1>
+                        <span class="info">Dec 25, 1990</span>
+                    </li>
+                    <li>
+                        <h1 class="label">Contact:</h1>
+                        <span class="info">9568721430</span>
+                    </li>
+                    <li class="mail">
+                        <h1 class="label">email:</h1>
+                        <span class="info">victoriawilliams@gmail.com</span>
+                    </li>
+                    <!-- <li>
+                        <h1 class="label">address:</h1>
+                        <span class="info">B24 64 old street <br> New York NY 1001</span>
+                    </li> -->
+                </ul>
+                <div class="social">
+                    <a href=""><i class='bx bxl-facebook'></i></a>
+                    <a href=""><i class='bx bxl-instagram'></i></a>
+                    <a href=""><i class='bx bxl-twitter'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+
+
+        </section>
+
+
+        <!--                 User Details Sections               -->
+        <section class="userDetails card">
+            <div class="userName">
+                <h1 class="name">Victoria Williams</h1>
+                <p>Real Estate agent</p>
+            </div>
+
+            <div class="agent_info">
+                <ul>
+                    <li>
+                        <h1>Agent ID</h1>
+                        <span>1276</span>
+                    </li>
+                    <li>
+                        <h1>Area</h1>
+                        <span>North Meadows</span>
+                    </li>
+                    <li>
+                        <h1>Base Commission</h1>
+                        <span>$2000</span>
+                    </li>
+                    <li>
+                        <h1>rating</h1>
+                        <div class="stars">
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                            <a href="#"><i class='bx bxs-star'></i></a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!--                 Timeline & About Sections               -->
+        <section class="timeline_about card">
+            <div class="tabs">
+                <h1>Property Status</h1>
+            </div>
+
+            <div class="Sales_Info">
+                <div class="row-items">
+                    <div class="box">
+                        <h2>Properties Rented</h2>
+                        <p>2</p>
+                        <img src="{{url_for('static', filename='images/graph1.jpeg')}}" alt="">
+                    </div>
+                    <div class="box">
+                        <h2>Properties Sold</h2>
+                        <p>3</p>
+                        <img src="{{url_for('static', filename='images/graph2.jpeg')}}"alt="">
+                    </div>
+                    <div class="box">
+                        <h2>Rental Sales</h2>
+                        <p>$32,000</p>
+                        <img src="{{url_for('static', filename='images/graph3.jpeg')}}" alt="">
+                    </div>
+                    <div class="box"> 
+                        <h2>Sell Sales</h2>
+                        <p>1,28,000</p>
+                        <img src="{{url_for('static', filename='images/graph1.jpeg')}}" alt="">
+                        
+                        <!-- <div class="container-img">
+                            <img src="images/graph1.jpeg" alt="">
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
