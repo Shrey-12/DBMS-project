@@ -146,7 +146,7 @@ def blue_hils():
 
 @app.route('/owners')
 def owners():
-    # session['url'] = 'owners'
+    session['url'] = 'owners'
     # session.pop('url')
     return render_template('x.html')
 
