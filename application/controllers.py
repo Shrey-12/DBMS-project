@@ -9,23 +9,26 @@ from sqlalchemy import text
 def home():
     print("Hello")
     '''home_og = Property.query.all()'''
+
+    search_query1 = text(
+        "SELECT DISTINCT area FROM property order by area"
+    )
+    results1 = db.session.execute(search_query1).fetchall()
+
+    search_query2 = text(
+        "SELECT DISTINCT no_bedrooms FROM property order by no_bedrooms"
+    )
+    results2 = db.session.execute(search_query2).fetchall()
+
+    search_query3 = text(
+        "SELECT DISTINCT area_sqft FROM property "
+    )
+    results3 = db.session.execute(search_query3).fetchall()
+
     if len(session) == 0:
         home_og = text(
             "SELECT * FROM property natural join sells natural join agent ")
         results = db.session.execute(home_og).fetchall()
-
-        search_query1 = text(
-            "SELECT distinct area FROM property ")
-        results1 = db.session.execute(search_query1).fetchall()
-
-        search_query2 = text(
-            "SELECT distinct no_bedrooms FROM property ")
-        results2 = db.session.execute(search_query2).fetchall()
-
-        search_query3 = text(
-            "SELECT distinct area_sqft FROM property ")
-        results3 = db.session.execute(search_query3).fetchall()
-
         return render_template('index.html', homes=results, loc=results1, loc1=results2, loc2=results3)
 
     else:
@@ -42,22 +45,6 @@ def home():
             'max_area': session.get('max_area', float('inf'))
         }
         results = db.session.execute(search_query, search_params).fetchall()
-
-        search_query1 = text(
-            "SELECT DISTINCT area FROM property"
-        )
-        results1 = db.session.execute(search_query1).fetchall()
-
-        search_query2 = text(
-            "SELECT DISTINCT no_bedrooms FROM property"
-        )
-        results2 = db.session.execute(search_query2).fetchall()
-
-        search_query3 = text(
-            "SELECT DISTINCT area_sqft FROM property"
-        )
-        results3 = db.session.execute(search_query3).fetchall()
-
         return render_template('index.html', homes=results, loc=results1, loc1=results2, loc2=results3)
 
     
