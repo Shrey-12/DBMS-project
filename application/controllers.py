@@ -90,6 +90,7 @@ def home():
         return render_template('index.html', homes=results, loc=results1, loc1=results2, loc2=results3)
 
     elif session['url'] == 'owners' :
+        # session.pop('url')
         return redirect(url_for('owners'))  
 
 
@@ -145,7 +146,8 @@ def blue_hils():
 
 @app.route('/owners')
 def owners():
-    session['url'] = 'owners'
+    # session['url'] = 'owners'
+    # session.pop('url')
     return render_template('x.html')
 
 '''@app.route('/submit', methods=['POST'])
