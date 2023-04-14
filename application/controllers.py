@@ -5,6 +5,7 @@ from application.database import db
 from sqlalchemy import text
 
 
+
 @app.route("/", methods=["GET", "POST"])
 def home():
     print("Hello")
@@ -65,6 +66,8 @@ def home():
         'location': 'Asylum Hill'
         }
         results = db.session.execute(search_query, search_params).fetchall()
+        session.pop('url')
+        session.pop('location')
         return render_template('index.html', homes=results, loc=results1, loc1=results2, loc2=results3)
     
     elif session['url'] == 'Blue Hills':
@@ -76,6 +79,8 @@ def home():
             'location': 'Blue Hills'
         }
         results = db.session.execute(search_query, search_params).fetchall()
+        session.pop('url')
+        session.pop('location')
         return render_template('index.html', homes=results, loc=results1, loc1=results2, loc2=results3)
 
     elif session['url'] == 'Barry Square':
@@ -87,11 +92,10 @@ def home():
             'location': 'Barry Square'
         }
         results = db.session.execute(search_query, search_params).fetchall()
+        session.pop('url')
+        session.pop('location')
         return render_template('index.html', homes=results, loc=results1, loc1=results2, loc2=results3)
 
-    elif session['url'] == 'owners' :
-        # session.pop('url')
-        return redirect(url_for('owners'))  
 
 
     
@@ -146,7 +150,7 @@ def blue_hils():
 
 @app.route('/owners')
 def owners():
-    session['url'] = 'owners'
+    # session['url'] = 'owners'
     # session.pop('url')
     return render_template('x.html')
 

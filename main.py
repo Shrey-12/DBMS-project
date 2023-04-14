@@ -21,4 +21,9 @@ def build_app():
 app = build_app()
 from application.controllers import *
 if __name__ == "__main__":
+<<<<<<< HEAD
     app.run(host="0.0.0.0",debug=True, port=8002)
+=======
+    app.run(host="0.0.0.0",debug=True, port=8000)
+
+>>>>>>> cc290a80a741d863c607d6d13505a45c4d2fe50a
