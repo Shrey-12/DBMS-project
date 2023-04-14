@@ -125,3 +125,12 @@
   font-size: 20px; /* Increase font size */
   height: 90px; /* Increase height */
 }
+
+.agent-image{
+  height:350px;
+}
+
+.c-img{
+  height: 100%;
+  overflow: hidden;
+}
