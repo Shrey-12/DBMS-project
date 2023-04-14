@@ -1,12 +1,232 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Roseville and Sacramento</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../static/css/x.css" rel="stylesheet" type="text/css" />
+    <link
+      href="../static/favicon.ico"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Roseville Greenwich</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- add links to other pages -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-4">
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="{{url_for('home')}}">For Buyers/Tenants</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link active" aria-current="page" href="#">For Owners</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#">For Agents</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#">For Agency</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="sell-property-heading">
+      <h2>Sell your property</h2>
+    </div>
+
+    <div class="sell-property-container">
+      <div class="grey-div">
+        <!-- add bootstrap carousel here -->
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+            <!-- add jinja loop here for all items -->
+            <div class="carousel-item active c-item">
+              <div class="agent-info">
+                <div class="agent-image">
+                  <!-- checkout how to attatch images in jinja -->
+                  <img
+                    src="../static/images/background-2.jpg"
+                    class="d-block w-100 c-img"
+                    alt="..."
+                  />
+                </div>
+                <div class="agent-name">
+                  <!-- jinja variables instead of these properties -->
+                  <h3>Anant Sharma</h3>
+                </div>
+                <p>Rating : *****</p>
+                <p>Base Commision : $ 1000<br /></p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <!-- add bootstrap dropdown menu here -->
+        <div class="dropdown select-agent-class">
+          <button
+            class="btn btn-secondary dropdown-toggle select-agent"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            SELECT AGENT
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="property-form">
+        <form>
+          <!-- form fields and buttons -->
+          <div>
+            <input
+              type="text"
+              maxlength="256"
+              name="house-no"
+              placeholder="House No."
+              required
+            />
+            <input
+              type="text"
+              maxlength="256"
+              name="street"
+              placeholder="Street"
+              required
+            />
+            <input
+              type="text"
+              maxlength="256"
+              name="area"
+              placeholder="Area"
+              required
+            />
+            <input
+              type="number"
+              maxlength="256"
+              name="pincode"
+              placeholder="Pincode"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="number"
+              maxlength="256"
+              name="year-built"
+              placeholder="Year Built"
+              required
+            />
+            <input
+              type="number"
+              maxlength="256"
+              name="area-sqft"
+              placeholder="Area Sq. Ft."
+              required
+            />
+            <input
+              type="text"
+              maxlength="256"
+              name="sell-price"
+              placeholder="Sell Price"
+              required
+            />
+            <input
+              type="text"
+              maxlength="256"
+              name="rent-price"
+              placeholder="Rent Price"
+              required
+            />
+            <input
+              type="text"
+              maxlength="256"
+              name="bedrooms"
+              placeholder="Bedrooms"
+              required
+            />
+          </div>
+          <div>
+            <h4>Property Type</h4>
+            <div class="btn-container">
+              <input
+                type="rent"
+                value="Rent"
+                data-wait="Please wait..."
+                class="submit-button"
+              />
+              <input
+                type="rent"
+                value="Sale"
+                data-wait="Please wait..."
+                class="submit-button"
+              />
+            </div>
+          </div>
+          <div></div>
+          <div>
+            <input
+              type="submit"
+              value="Post Your Property"
+              data-wait="Please wait..."
+              class="submit-button-2"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
+
+
+
+
+
