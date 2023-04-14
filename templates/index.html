@@ -78,6 +78,13 @@
               </select>
             </div>
             <div class="form-group">
+              <label for="Availability">Availability:</label>
+              <select id="Availability" name="Availability">
+                <option value="rent">rent</option>
+                <option value="sale">sale</option>
+              </select>
+            </div>
+            <div class="form-group">
               <button type="submit">Search</button>
             </div>
           </form>
@@ -124,7 +131,7 @@
             <div class="grid-items" onclick="location.href='www.google.com';">
               <div class="fill">
                 <img
-                  src="{{url_for('static',filename='images/house3.jpg')}}"
+                  src="{{url_for('static',filename='images/house3.jpg') }}"
                   class="house"
                 />
               </div>
@@ -138,7 +145,7 @@
                 <tr id="row2">
                   <td>$ {{home.sell_price}}</td>
                   <td>{{home.area_sqft}} sq.ft.</td>
-                  <td>{%if home.avail == 0%} Rent {%else%} Sell {%endif%}</td>
+                  <td>{{home.avail}}</td>
                 </tr>
                 <tr id="row3">
                   <td>Price</td>

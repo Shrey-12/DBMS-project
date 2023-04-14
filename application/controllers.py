@@ -9,6 +9,7 @@ from sqlalchemy import text
 def home():
     print("Hello")
     '''home_og = Property.query.all()'''
+<<<<<<< HEAD
 
     search_query1 = text(
         "SELECT DISTINCT area FROM property order by area"
@@ -26,6 +27,9 @@ def home():
     results3 = db.session.execute(search_query3).fetchall()
 
     if len(session) == 0:
+=======
+    if 'location' not in session.keys():
+>>>>>>> c7fb376bd3aeeeaaa663583b4d759f42f7c5a509
         home_og = text(
             "SELECT * FROM property natural join sells natural join agent ")
         results = db.session.execute(home_og).fetchall()
@@ -45,6 +49,31 @@ def home():
             'max_area': session.get('max_area', float('inf'))
         }
         results = db.session.execute(search_query, search_params).fetchall()
+<<<<<<< HEAD
+=======
+
+        search_query1 = text(
+            "SELECT DISTINCT area FROM property"
+        )
+        results1 = db.session.execute(search_query1).fetchall()
+
+        search_query2 = text(
+            "SELECT DISTINCT no_bedrooms FROM property"
+        )
+        results2 = db.session.execute(search_query2).fetchall()
+
+        search_query3 = text(
+            "SELECT DISTINCT area_sqft FROM property"
+        )
+        results3 = db.session.execute(search_query3).fetchall()
+        session.pop('location')
+        session.pop('bedrooms')
+        session.pop('min_area')
+        session.pop('max_area')
+        session.pop('lower_price')
+        session.pop('upper_price')
+
+>>>>>>> c7fb376bd3aeeeaaa663583b4d759f42f7c5a509
         return render_template('index.html', homes=results, loc=results1, loc1=results2, loc2=results3)
 
     
