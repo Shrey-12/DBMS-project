@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>AgentInfoSales</title>
 
     <!--                 Custom Css              -->
-    <!-- <link rel="stylesheet" href="css/agentsInfo.css"> -->
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/agentsInfo.css')  }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/responsive.css')  }}">
 
@@ -28,7 +26,7 @@
         <!--                 Header/Navbar               -->
         <header>
             <div class="Logo">
-                <figure><img src="{{url_for('static', filename='agent-images/resized11.png')}}" alt="logo" width="40px" height="40px"></figure>
+                <figure><img src="{{url_for('static', filename='images/resized11.png')}}" alt="logo" width="40px" height="40px"></figure>
                 <span>Roseville Greenwich</span>
             </div>
         </header>
@@ -37,7 +35,7 @@
         <!--                 User Main-Profile               -->
         <section class="userProfile card">
             <div class="profile">
-                <figure><img src="{{url_for('static', filename='agent-images/a1276.jpg')}}"alt="profile" width="250px" height="250px"></figure>
+                <figure><img src="{{url_for('static', filename='images/agent2.jpg')}}" alt="profile" width="250px" height="250px"></figure>
             </div>
             <!-- <div class="stars">
                 <a href="#"><i class='bx bxs-star'></i></a>
@@ -49,17 +47,17 @@
         </section>
 
 
-        <!--                 Work & Skills Section               -->
+        <!--  Work & Skills Section  -->
         <section class="work_skills card">
 
-            <!--                 Work Contaienr              -->
+            <!-- Work Contaienr  -->
             <div class="work">
                 <h1 class="heading"></h1>
                 <ul>
 
                     <li>
                         <h1 class="label">Name:</h1>
-                        <span class="info">Victoria Williams</span>
+                        <span class="info">{{names}}</span>
                     </li>
                     <li>
                         <h1 class="label">Gender:</h1>
@@ -97,25 +95,26 @@
         <!--                 User Details Sections               -->
         <section class="userDetails card">
             <div class="userName">
-                <h1 class="name">Victoria Williams</h1>
+                <h1 class="name">{{names}}</h1>
                 <p>Real Estate agent</p>
             </div>
 
             <div class="agent_info">
+                {%for agent in agents %}
                 <ul>
                     <li>
                         <h1>Agent ID</h1>
-                        <span>1276</span>
+                        <span>{{agent.agent_id}}</span>
                     </li>
                     <li>
                         <h1>Area</h1>
-                        <span>North Meadows</span>
+                        <span>{{agent.area}}</span>
                     </li>
                     <li>
                         <h1>Base Commission</h1>
-                        <span>$2000</span>
+                        <span>{{agent.base_commission}}</span>
                     </li>
-                    <li>
+                    <!-- <li> 
                         <h1>rating</h1>
                         <div class="stars">
                             <a href="#"><i class='bx bxs-star'></i></a>
@@ -124,7 +123,7 @@
                             <a href="#"><i class='bx bxs-star'></i></a>
                             <a href="#"><i class='bx bxs-star'></i></a>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
 
             </div>
@@ -142,24 +141,24 @@
                 <div class="row-items">
                     <div class="box">
                         <h2>Properties Rented</h2>
-                        <p>2</p>
-                        <img src="{{url_for('static', filename='agent-images/graph1.jpeg')}}" alt="">
+                        <p>{{agent.no_rented }}</p>
+                        <img src="{{url_for('static', filename='images/graph1.jpeg')}}"  alt="">
                     </div>
                     <div class="box">
                         <h2>Properties Sold</h2>
-                        <p>3</p>
-                        <img src="{{url_for('static', filename='agent-images/graph2.jpeg')}}"alt="">
+                        <p>{{agent.no_sold}}</p>
+                        <img src="{{url_for('static', filename='images/graph2.jpeg')}}" alt="">
                     </div>
                     <div class="box">
                         <h2>Rental Sales</h2>
-                        <p>$32,000</p>
-                        <img src="{{url_for('static', filename='agent-images/graph3.jpeg')}}" alt="">
+                        <p>{{agent.rental_sales}}</p>
+                        <img src="{{url_for('static', filename='images/graph3.jpeg')}}" alt="">
                     </div>
-                    <div class="box"> 
+                    <div class="box">
                         <h2>Sell Sales</h2>
-                        <p>1,28,000</p>
-                        <img src="{{url_for('static', filename='agent-images/graph1.jpeg')}}" alt="">
-                        
+                        <p>{{agent.sold_sales}}</p>
+                        <img src="{{url_for('static', filename='images/graph1.jpeg')}}" alt="">
+
                         <!-- <div class="container-img">
                             <img src="images/graph1.jpeg" alt="">
                         </div> -->
@@ -167,7 +166,9 @@
                 </div>
             </div>
         </section>
+
     </div>
+    {%endfor%}
 
 </body>
 
