@@ -30,11 +30,7 @@ def home():
         home_og = text(
             "SELECT * FROM property natural join sells natural join agent ")
         results = db.session.execute(home_og).fetchall()
-<<<<<<< HEAD
-        return render_template('user.html', homes=results, loc=results1, loc1=results2, loc2=results3)
-=======
         return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
->>>>>>> 46cc2ada5c65a9e0dd5a90fcbc0cec721dc49042
 
     elif session["url"] == 'submit':
         search_query = text(
@@ -59,11 +55,7 @@ def home():
         session.pop('upper_price')
         session.pop('avail_prop')
         session.pop('url')
-<<<<<<< HEAD
-        return render_template('user.html', homes=results, loc=results1, loc1=results2, loc2=results3)
-=======
         return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
->>>>>>> 46cc2ada5c65a9e0dd5a90fcbc0cec721dc49042
     
     elif session['url'] == 'Asylum Hill':
         search_query = text(
@@ -89,11 +81,7 @@ def home():
         results = db.session.execute(search_query, search_params).fetchall()
         session.pop('url')
         session.pop('location')
-<<<<<<< HEAD
-        return render_template('user.html', homes=results, loc=results1, loc1=results2, loc2=results3)
-=======
         return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
->>>>>>> 46cc2ada5c65a9e0dd5a90fcbc0cec721dc49042
 
     elif session['url'] == 'Barry Square':
         search_query = text(
@@ -106,11 +94,7 @@ def home():
         results = db.session.execute(search_query, search_params).fetchall()
         session.pop('url')
         session.pop('location')
-<<<<<<< HEAD
-        return render_template('user.html', homes=results, loc=results1, loc1=results2, loc2=results3)
-=======
         return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
->>>>>>> 46cc2ada5c65a9e0dd5a90fcbc0cec721dc49042
 
 
 
@@ -171,7 +155,11 @@ def owners():
     return render_template('seller.html')
 
 
-
+@app.route('/agency')
+def agency():
+    query = text("Select * from Agent")
+    result_agent = db.session.execute(query)
+    return render_template('agentoffice.html', homes = result_agent)
 
 
 
