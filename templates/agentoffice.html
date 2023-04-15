@@ -23,26 +23,44 @@
 <body>
 
     <header>
-        <a href="#" class="logo"><img src="{{url_for('static', filename='images/resized11.png')}}" alt=""></a>
+        <a href="#" class="logo"><img src="{{url_for('static', filename='agent-images/resized11.png')}}" alt=""></a>
         <!-- <a href="" class="logo"><img src="images/resized11.png" alt=""></a> -->
 
         <ul class="navbar">
-            <li><a href="#">Homepage</a></li>
-            <li><a href="#">Sales Report</a></li>
-            <li><a href="agentinfo.html">Agent Profile</a></li>
-            <li><a href="#">Contact us</a></li>
+            <li><a href="#homescreen">Homepage</a></li>
+            <li><a href="#sales-report">Sales Report</a></li>
+            <li><a href="#agent-profile">Agent Profile</a></li>
+            <li><a href="agentinfo.html">Contact us</a></li>
         </ul>
     </header>
 
-    <section class="homescreen">
+    <section class="homescreen" id="homescreen">
         <div class="hometext">
             <!-- <a href="" class="logo"><img src="images/resized11.png" alt=""></a> -->
             <h1>ROSEVILLE GREENWICH</h1>
             <p>Move to what moves you</p>
         </div>
+        <!-- <div class="display">
+            <div class="box">
+                <span>Years Experience</span>
+                <p>10+</p>
+            </div>
+            <div class="box">
+                <span>Team Members</span>
+                <p>167</p>
+            </div>
+            <div class="box">
+                <span>Satisfied Clients</span>
+                <p>1345</p>
+            </div>
+            <div class="box">
+                <span>Projects</span>
+                <p>1599</p>
+            </div> -->
+        </div>
     </section>
 
-    <section class="container">
+    <section class="container" id="agent-profile">
         
         <div class="text">
         <h2>AGENT PROFILES</h2>
@@ -52,9 +70,9 @@
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{url_for('static', filename='images/agent1.jpg')}}" alt="">
+                    <img src="{{url_for('static', filename='agent-images/a1967.jpg')}}" alt="">
                 </div>
-                <h4>Caroline Lee</h4>
+                <a href=""><h4>Caroline Lee</h4></a>
                 <div class="stars">
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>
@@ -67,9 +85,9 @@
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{ url_for('static',filename='images/agent2.jpg')}} " alt="">
+                    <img src="{{ url_for('static',filename='agent-images/a1276.jpg')}} " alt="">
                 </div>
-                <h4>Victoria Williams</h4>
+                <a href=""><h4>Victoria Williams</h4></a>
                 <div class="stars">
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>
@@ -83,9 +101,9 @@
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{ url_for('static',filename='images/agent3.jpg')}} " alt="">
+                    <img src="{{ url_for('static',filename='agent-images/a1541.jpg')}} " alt="">
                 </div>
-                <h4>Joshua Thompson</h4>
+                <a href=""><h4>Joshua Thompson</h4></a>
                 <div class="stars">
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>
@@ -96,9 +114,9 @@
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{ url_for('static',filename='images/agent4.jpg')}} " alt="">
+                    <img src="{{ url_for('static',filename='agent-images/a1865.jpg')}} " alt="">
                 </div>
-                <h4>Samantha Johnson</h4>
+                <a href=""><h4>Samantha Johnson</h4></a>
                 <div class="stars">
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>
@@ -110,7 +128,7 @@
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{ url_for('static',filename='images/agent5.jpg')}} " alt="">
+                    <img src="{{ url_for('static',filename='agent-images/a1295.jpg')}} " alt="">
                 </div>
                 <h4>Natalie Brown</h4>
                 <div class="stars">
@@ -124,7 +142,7 @@
             
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{ url_for('static',filename='images/agent6.jpg')}} " alt="">
+                    <img src="{{ url_for('static',filename='agent-images/a1847.jpg')}} " alt="">
                 </div>
                 <h4>Matthew Davis</h4>
                 <div class="stars">
@@ -138,7 +156,7 @@
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{ url_for('static',filename='images/agent7.jpg')}} " alt="">
+                    <img src="{{ url_for('static',filename='agent-images/a1698.jpg')}} " alt="">
                 </div>
                 <h4>Aaron Green</h4>
                 <div class="stars">
@@ -150,7 +168,7 @@
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{ url_for('static',filename='images/agent8.jpg')}} " alt="">
+                    <img src="{{ url_for('static',filename='agent-images/a1775.jpg')}} " alt="">
                 </div>
                 <h4>Ethan Martinez</h4>
                 <div class="stars">
@@ -162,7 +180,7 @@
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{ url_for('static',filename='images/agent9.jpg')}} " alt="">
+                    <img src="{{ url_for('static',filename='agent-images/a1845.jpg')}} " alt="">
                 </div>
                 <h4>Timothy Wilson </h4>
                 <!-- <h4>RATING :</h4> -->
@@ -175,7 +193,7 @@
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{ url_for('static',filename='images/agent10.jpg')}} " alt="">
+                    <img src="{{ url_for('static',filename='agent-images/a1529.jpg')}} " alt="">
                 </div>
                 <h4>Gabrielle Rodriguez</h4>
                 <div class="stars">
@@ -185,7 +203,7 @@
 
         </div>
 
-        <section class="sales_report">
+        <section class="sales_report" id="sales-report">
             <h1>SALES REPORT</h1>
             <table>
                 <tr>

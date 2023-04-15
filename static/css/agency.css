@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -60,7 +62,8 @@ header {
 
 .navbar a:hover {
     transition: 0.3s;
-   transform: scaleX(1.05);
+   text-transform: scale(1.05);
+/* -webkit-transform: scale(1.05); */
    background-color: rgb(0, 0, 0,0.3)
 }
 .logo{
@@ -80,9 +83,10 @@ header {
     background-position: center;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .hometext{
@@ -93,13 +97,14 @@ header {
     /* margin-bottom: 20%; */
     /* background-color: rgb(0, 0, 0,0.5); */
     padding: 20px;
-    /* margin-top: 70px; */
+    /* margin-top: 9rem; */
     align-items: center;
     text-align: center;
 }
 
 .hometext h1{
     font-size: 4.5rem;
+    /* margin-top: 10rem; */
     /* font-size: 64px; */
     background: linear-gradient(180deg,rgb(172, 133, 13),rgb(255, 242, 141),rgb(187, 146, 25));
     -webkit-text-fill-color: transparent;
@@ -124,10 +129,47 @@ header {
 }
 
 .hometext a{
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     /* outline: 2px solid  rgb(172, 133, 13); */
     outline-offset: 10px;
 }
+
+.homescreen .display{
+    display: grid;
+    padding: 20px;
+    margin: 0 18%;
+    grid-template-columns: repeat(4, 1fr);  
+    grid-gap: 2rem;
+    /* padding: 3rem; */
+    border-radius: 10px;
+    /* background-color:#f0eded; */
+    background: rgb(0, 0, 0,0.5);
+    
+}
+
+.homescreen .display .box{
+    background-color: #e0cfcf;
+    /* background:hsl(14, 52%, 38%); */
+    /* background-color: rgb(134, 64, 43); */
+    padding: 0.5rem 0;
+    text-align: center;
+    justify-content: center;
+    border-radius: 15px;
+    /* text-transform: uppercase; */
+}
+
+.box span{
+    font-size: 1.1rem;
+    font-family: sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* font-weight: bold; */
+}
+.box p{
+    margin-top: 0.7rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
 .container{
     align-items: center;
     text-align: center;
@@ -230,21 +272,28 @@ header {
 }
 
 table {
-    width: 90%;
+    width: 100%;
     margin: 2rem auto;
     border-collapse: collapse;
     margin-bottom: 8rem;
 }
 
 th{
-    background-color: black;
-    color: white;
+    background-color :rgb(0, 0, 0,0.2);
+    /* color: white; */
 }
 
 th,
 td {
-    padding: 10px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* font-family: "Cinzel", sans-serif; */
     /* Adds padding to table cells */
-    border: 1px solid black;
-    /* Adds a border to table cells */
+    /* border: 1px solid black; */
+    /* border-radius: 5px; */
+}
+
+tr:nth-child(odd){
+    background-color: rgb(240, 240, 240);
 }
