@@ -162,7 +162,15 @@ def agency():
     result_agent1 = db.session.execute(query)
     return render_template('agentoffice.html', agents = result_agent, homes = result_agent1)
 
+@app.route("/<name>")
+def connect(name):
+    query = text("SELECT * FROM Agent WHERE agent_name= :aname")
+    search_params1 = {
+        'aname': name
+    }
+    results1 = db.session.execute(query, search_params1).fetchall()
 
+    return render_template('agentinfo.html', names = name, agents = results1)
 
 '''@app.route('/submit', methods=['POST'])
 def submit():

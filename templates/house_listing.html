@@ -124,7 +124,7 @@
           </div>
           <div class="grid-container">
             {% for home in homes%}
-            <div class="grid-items" onclick="location.href='www.google.com';">
+            <div class="grid-items" onclick="location.href='/{{home.agent_name}}';">
               <div class="fill">
                 <img
                   src="{{ url_for('static', filename='property_images/p%d.jpg' % home.pid) }}"
@@ -150,7 +150,7 @@
                 </tr>
                 <tr id="row4">
                   <td colspan="2">Agent Details : {{home.agent_name}}</td>
-                  <td><button class="Agent-button">Connect Now</button></td>
+                  <a href="/{{home.agent_name}}"><td><button class="Agent-button">Connect Now</button></td></a>
                 </tr>
               </table>
             </div>
