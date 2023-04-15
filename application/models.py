@@ -41,3 +41,28 @@ class Sells(db.Model):
     __table_args__ = (
         db.PrimaryKeyConstraint('pid', 'agent_id'),
     )
+
+class Buyer(db.Model):
+    __tablename__ = 'buyer'
+    bid = db.Column(db.Integer, primary_key=True)
+    password =	db.Column(db.String(50))
+    buyer_name = db.Column(db.String(50))
+    contact_no =  db.Column(db.Numeric(10,0))
+    area =  db.Column(db.String(50))
+    budget = db.Column(db.Integer)
+    
+
+class Buys(db.Model):
+    __tablename__ = 'buys'
+    pid = db.Column(db.Integer, db.ForeignKey('Property.pid'))
+    bid = db.Column(db.Integer, db.ForeignKey('Buyer.bid'))
+    year_sold = db.Column(db.Integer)
+    market_out = db.Column(db.Date)
+    __table_args__ = (
+        db.PrimaryKeyConstraint('pid', 'bid'),
+    )
+
+
+
+
+
