@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Office</title>
+    <!-- <link rel="stylesheet" href="css/agency.css"> -->
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='css/agency.css')  }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Noto+Sans:wght@300&family=Zeyada&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        :root{
+            --background-url: url("{{ url_for('static', filename='/images/estate.jpg')}}");
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo"><img src="{{url_for('static', filename='images/resized11.png')}}" alt=""></a>
+        <!-- <a href="" class="logo"><img src="images/resized11.png" alt=""></a> -->
+
+        <ul class="navbar">
+            <li><a href="#">Homepage</a></li>
+            <li><a href="#">Sales Report</a></li>
+            <li><a href="agentinfo.html">Agent Profile</a></li>
+            <li><a href="#">Contact us</a></li>
+        </ul>
+    </header>
+
+    <section class="homescreen">
+        <div class="hometext">
+            <!-- <a href="" class="logo"><img src="images/resized11.png" alt=""></a> -->
+            <h1>ROSEVILLE GREENWICH</h1>
+            <p>Move to what moves you</p>
+        </div>
+    </section>
+
+    <section class="container">
+        
+        <div class="text">
+        <h2>AGENT PROFILES</h2>
+        </div>
+
+        <div class="row-items">
+
+            <div class="container-box">
+                <div class="container-img">
+                    <img src="{{url_for('static', filename='images/agent1.jpg')}}" alt="">
+                </div>
+                <h4>Caroline Lee</h4>
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>           
+                </div>
+
+            </div>
+
+            <div class="container-box">
+                <div class="container-img">
+                    <img src="{{ url_for('static',filename='images/agent2.jpg')}} " alt="">
+                </div>
+                <h4>Victoria Williams</h4>
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                </div>
+                
+            </div>
+
+
+            <div class="container-box">
+                <div class="container-img">
+                    <img src="{{ url_for('static',filename='images/agent3.jpg')}} " alt="">
+                </div>
+                <h4>Joshua Thompson</h4>
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                </div>
+            </div>
+
+            <div class="container-box">
+                <div class="container-img">
+                    <img src="{{ url_for('static',filename='images/agent4.jpg')}} " alt="">
+                </div>
+                <h4>Samantha Johnson</h4>
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>            
+                </div>
+            </div>
+
+
+            <div class="container-box">
+                <div class="container-img">
+                    <img src="{{ url_for('static',filename='images/agent5.jpg')}} " alt="">
+                </div>
+                <h4>Natalie Brown</h4>
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                </div>
+            </div>
+
+            
+            <div class="container-box">
+                <div class="container-img">
+                    <img src="{{ url_for('static',filename='images/agent6.jpg')}} " alt="">
+                </div>
+                <h4>Matthew Davis</h4>
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+            
+                </div>
+            </div>
+
+
+            <div class="container-box">
+                <div class="container-img">
+                    <img src="{{ url_for('static',filename='images/agent7.jpg')}} " alt="">
+                </div>
+                <h4>Aaron Green</h4>
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>                               
+                </div>
+            </div>
+
+            <div class="container-box">
+                <div class="container-img">
+                    <img src="{{ url_for('static',filename='images/agent8.jpg')}} " alt="">
+                </div>
+                <h4>Ethan Martinez</h4>
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>                    
+                </div>
+            </div>
+
+
+            <div class="container-box">
+                <div class="container-img">
+                    <img src="{{ url_for('static',filename='images/agent9.jpg')}} " alt="">
+                </div>
+                <h4>Timothy Wilson </h4>
+                <!-- <h4>RATING :</h4> -->
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                </div>
+            </div>
+
+
+            <div class="container-box">
+                <div class="container-img">
+                    <img src="{{ url_for('static',filename='images/agent10.jpg')}} " alt="">
+                </div>
+                <h4>Gabrielle Rodriguez</h4>
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>           
+                </div>
+            </div>
+
+        </div>
+
+        <section class="sales_report">
+            <h1>SALES REPORT</h1>
+            <table>
+                <tr>
+                    <th>Agent Name</th>
+                    <th>Area</th>
+                    <th>Properties Rented</th>
+                    <th>Properties Sold</th>
+                    <th>Rental Sales</th>
+                    <th>Sell Sales</th>
+                </tr>
+                {% for home in homes %}
+                <tr>
+                    <td>{{home.agent_name}}</td>
+                    <td>{{home.area}}</td>
+                    <td>{{home.no_rented}}</td>
+                    <td>{{home.no_sold}}</td>
+                    <td>{{home.rental_sales}}</td>
+                    <td>{{home.sold_sales}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        
+    </section>
+    
+</body>
+</html>

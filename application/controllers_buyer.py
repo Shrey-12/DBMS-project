@@ -30,7 +30,11 @@ def home():
         home_og = text(
             "SELECT * FROM property natural join sells natural join agent ")
         results = db.session.execute(home_og).fetchall()
+<<<<<<< HEAD
         return render_template('user.html', homes=results, loc=results1, loc1=results2, loc2=results3)
+=======
+        return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
+>>>>>>> 46cc2ada5c65a9e0dd5a90fcbc0cec721dc49042
 
     elif session["url"] == 'submit':
         search_query = text(
@@ -55,7 +59,11 @@ def home():
         session.pop('upper_price')
         session.pop('avail_prop')
         session.pop('url')
+<<<<<<< HEAD
         return render_template('user.html', homes=results, loc=results1, loc1=results2, loc2=results3)
+=======
+        return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
+>>>>>>> 46cc2ada5c65a9e0dd5a90fcbc0cec721dc49042
     
     elif session['url'] == 'Asylum Hill':
         search_query = text(
@@ -68,7 +76,7 @@ def home():
         results = db.session.execute(search_query, search_params).fetchall()
         session.pop('url')
         session.pop('location')
-        return render_template('index.html', homes=results, loc=results1, loc1=results2, loc2=results3)
+        return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
     
     elif session['url'] == 'Blue Hills':
         search_query = text(
@@ -81,7 +89,11 @@ def home():
         results = db.session.execute(search_query, search_params).fetchall()
         session.pop('url')
         session.pop('location')
+<<<<<<< HEAD
         return render_template('user.html', homes=results, loc=results1, loc1=results2, loc2=results3)
+=======
+        return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
+>>>>>>> 46cc2ada5c65a9e0dd5a90fcbc0cec721dc49042
 
     elif session['url'] == 'Barry Square':
         search_query = text(
@@ -94,7 +106,11 @@ def home():
         results = db.session.execute(search_query, search_params).fetchall()
         session.pop('url')
         session.pop('location')
+<<<<<<< HEAD
         return render_template('user.html', homes=results, loc=results1, loc1=results2, loc2=results3)
+=======
+        return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
+>>>>>>> 46cc2ada5c65a9e0dd5a90fcbc0cec721dc49042
 
 
 
@@ -152,7 +168,7 @@ def blue_hils():
 def owners():
     # session['url'] = 'owners'
     # session.pop('url')
-    return render_template('x.html')
+    return render_template('seller.html')
 
 
 

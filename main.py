@@ -20,6 +20,14 @@ def build_app():
 
 app = build_app()
 from application.controllers_buyer import *
+<<<<<<< HEAD
+=======
+from application.controllers_agent import *
+from application.controllers_office import *
+from application.controllers_seller import *
+from application.controllers_login import *
+
+
+>>>>>>> 46cc2ada5c65a9e0dd5a90fcbc0cec721dc49042
 if __name__ == "__main__":
     app.run(host="0.0.0.0",debug=True, port=8000)
-
