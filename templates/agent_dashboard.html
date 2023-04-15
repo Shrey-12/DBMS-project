@@ -5,23 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agent Dashboard</title>
-    <link rel="stylesheet" href="agent_dashboard.css">
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/agent_dashboard.css')}}"
+    />
   </head>
   <body>
+    <nav>
+      <ul>
+        <li><a href="#">Agent Profile</a></li>
+        <li><a href="#">Properties</a></li>
+      </ul>
+    </nav>
+
     <h3 class="i-name">SOLD PROPERTIES</h3>
 
     <div class="board">
       <table width="100%">
         <thead class="attributes">
           <tr>
-            <td>pid</td>
-            <td>area</td>
-            <td>Price</td>
-            <td>Status</td>
-            <td>market_out</td>
-            <td>no_bedrooms</td>
-            <td>build_year</td>
-            <td>area_sqft</td>
+            <th>pid</th>
+            <th>area</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>market_out</th>
+            <th>no_bedrooms</th>
+            <th>build_year</th>
+            <th>area_sqft</th>
           </tr>
         </thead>
         <tbody>
@@ -43,8 +53,9 @@
             </td>
 
             <td class="Status">
-              <h5>{%if property.avail=='rent' %} rented {%else%}
-                sold {%endif%}</h5>
+              <h5>
+                {%if property.avail=='rent' %} rented {%else%} sold {%endif%}
+              </h5>
             </td>
 
             <td class="market_out">
@@ -74,71 +85,55 @@
       <table width="100%">
         <thead class="attributes">
           <tr>
-            <td>pid</td>
-            <td>area</td>
-            <td>Price</td>
-            <td>Status</td>
-            <td>no_bedrooms</td>
-            <td>build_year</td>
-            <td>area_sqft</td>
+            <th>pid</th>
+            <th>area</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>no_bedrooms</th>
+            <th>build_year</th>
+            <th>area_sqft</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {% for property in pendingProperties %}
           <tr>
             <td class="property_id">
-                <h5>{{property.pid}}</h5>
-              </td>
-  
-              <td class="Address">
-                <h5>{{property.area}}</h5>
-              </td>
-  
-              <td class="Price">
-                <h5>
-                  {%if property.avail=='rent' %} {{property.rent_price}} {%else%}
-                  {{property.sell_price}} {%endif%}
-                </h5>
-              </td>
-  
-              <td class="Status">
-                <h5>{{property.avail}}</h5>
-              </td>
-  
-              <td class="no_bedrooms">
-                <h5>{{property.no_bedrooms}}</h5>
-              </td>
-  
-              <td class="buildYear">
-                <h5>{{property.build_year}}</h5>
-              </td>
-  
-              <td class="area_sqft">
-                <h5>{{property.area_sqft}}</h5>
-              </td>
-            <style>
-              .sellButton {
-                padding: 5px 30px;
-                background-color: black;
-                outline: none;
-                border: 2px solid black;
-                border-radius: 5px;
-                color: white;
-                font-size: large;
-              }
-
-              .sellButton:hover {
-                background-color: rgb(255, 255, 255);
-                color: black;
-                cursor: pointer;
-              }
-            </style>
-            <td class="sellPrice">
-              <h5>{{property.Sell_Price}}</h5>
+              <h5>{{property.pid}}</h5>
             </td>
 
-            <td class="SellDate">
-              <h5 class="not-h5"><button class="sellButton">Sell</button></h5>
+            <td class="Address">
+              <h5>{{property.area}}</h5>
+            </td>
+
+            <td class="Price">
+              <h5>
+                {%if property.avail=='rent' %} {{property.rent_price }} {%else%}
+                {{property.sell_price}} {%endif%}
+              </h5>
+            </td>
+
+            <td class="Status">
+              <h5>
+                {%if property.avail=='rent' %} For Rent {%else%} For Sale
+                {%endif%}
+              </h5>
+            </td>
+
+            <td class="no_bedrooms">
+              <h5>{{property.no_bedrooms}}</h5>
+            </td>
+
+            <td class="buildYear">
+              <h5>{{property.build_year}}</h5>
+            </td>
+
+            <td class="area_sqft">
+              <h5>{{property.area_sqft}}</h5>
+            </td>
+
+            <td class="Action">
+              <button class="btn btn-primary">Mark as Sold</button>
             </td>
           </tr>
           {% endfor%}

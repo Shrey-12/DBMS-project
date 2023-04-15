@@ -1,69 +1,135 @@
-/* General Styles */
+table {
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1.1em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
 
-html {
-    font-size: 62.5%; /* Sets the base font size to 10px */
-  }
+th,
+td {
+  padding: 12px 15px;
+}
+
+thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+h3 {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Navigation bar styling */
+nav {
+  background-color: #222;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-right: 20px;
+}
+
+li:last-child {
+  margin-right: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* a:hover {
+  border-bottom: #dddddd;
   
-  body {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 1.6rem; /* Sets the base font size to 16px */
-    color: #222;
-    margin: 0;
-  }
-  
-  h3 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .board {
-    margin-bottom: 4rem;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th,
-  td {
-    text-align: left;
-    padding: 1rem;
-  }
-  
-  th {
-    background-color: #F6F6F6;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.2rem;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #F9F9F9;
-  }
-  
-  /* Specific Styles */
-  
-  .i-name {
-    text-align: center;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-  }
-  
-  .sellButton {
-    padding: 1rem 2rem;
-    background-color: black;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 1.4rem;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .sellButton:hover {
-    background-color: #F6F6F6;
-    color: black;
-    cursor: pointer;
-  }
-  
+} */
+
+/* Table column styling */
+.property_id {
+  width: 5%;
+}
+
+.Address {
+  width: 15%;
+}
+
+.Price {
+  width: 10%;
+}
+
+.Status {
+  width: 10%;
+}
+
+.market_out {
+  width: 15%;
+}
+
+.no_bedrooms {
+  width: 10%;
+}
+
+.buildYear {
+  width: 10%;
+}
+
+.area_sqft {
+  width: 10%;
+}
+
+.Action {
+  width: 15%;
+}
+
+/* Background and font color for headings */
+.attributes th {
+  color: #fff;
+  background-color: black;
+}
+
+button {
+  background-color: #aa5b00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #8c4600;
+}
