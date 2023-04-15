@@ -19,7 +19,7 @@ def build_app():
 
 
 app = build_app()
-from application.controllers import *
+from application.controllers_buyer import *
 if __name__ == "__main__":
     app.run(host="0.0.0.0",debug=True, port=8000)
 
