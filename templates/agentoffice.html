@@ -59,20 +59,20 @@
             </div> -->
         </div>
     </section>
-
     <section class="container" id="agent-profile">
         
         <div class="text">
         <h2>AGENT PROFILES</h2>
         </div>
-
+        {%for agent in agents%}
         <div class="row-items">
 
             <div class="container-box">
                 <div class="container-img">
                     <img src="{{url_for('static', filename='agent-images/a1967.jpg')}}" alt="">
                 </div>
-                <a href="/agency/Caroline Lee"><h4>Caroline Lee</h4></a>
+                <a href="/agency/{{agent.agent_name}}"><h4>{{agent.agent_name}}</h4></a>
+
 
                 <div class="stars">
                     <a href="#"><i class='bx bxs-star'></i></a>
@@ -83,12 +83,13 @@
                 </div>
 
             </div>
-
+            {%endfor%}
+<!-- 
             <div class="container-box">
                 <div class="container-img">
                     <img src="{{ url_for('static',filename='agent-images/a1276.jpg')}} " alt="">
                 </div>
-                <a href=""><h4>Victoria Williams</h4></a>
+                <a href="/agency/Victoria Williams"><h4>Victoria Williams</h4></a>
                 <div class="stars">
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>
@@ -184,8 +185,8 @@
                     <img src="{{ url_for('static',filename='agent-images/a1845.jpg')}} " alt="">
                 </div>
                 <h4>Timothy Wilson </h4>
-                <!-- <h4>RATING :</h4> -->
-                <div class="stars">
+                 <h4>RATING :</h4> -->
+                <!-- <div class="stars">
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>
                 </div>
@@ -200,10 +201,9 @@
                 <div class="stars">
                     <a href="#"><i class='bx bxs-star'></i></a>           
                 </div>
-            </div>
+            </div> -->
 
-        </div>
-
+        
         <section class="sales_report" id="sales-report">
             <h1>SALES REPORT</h1>
             <table>

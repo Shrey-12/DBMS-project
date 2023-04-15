@@ -25,6 +25,7 @@ def agent_det(name):
     return render_template("agentinfosales.html", names = name, agents=results, homes=results)'''
 
 
+
 @app.route("/agency/<name>", methods=["GET", "POST"])
 def agent_det(name):
     query = text("SELECT * FROM Agent WHERE agent_name= :aname")

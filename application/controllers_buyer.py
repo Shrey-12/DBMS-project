@@ -159,9 +159,8 @@ def owners():
 def agency():
     query = text("Select * from Agent")
     result_agent = db.session.execute(query)
-    return render_template('agentoffice.html', homes = result_agent)
-
-
+    result_agent1 = db.session.execute(query)
+    return render_template('agentoffice.html', agents = result_agent, homes = result_agent1)
 
 
 
