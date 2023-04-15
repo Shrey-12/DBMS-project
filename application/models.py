@@ -42,7 +42,6 @@ class Sells(db.Model):
         db.PrimaryKeyConstraint('pid', 'agent_id'),
     )
 
-<<<<<<< HEAD
 class Buyer(db.Model):
     __tablename__ = 'buyer'
     bid = db.Column(db.Integer, primary_key=True)
@@ -64,10 +63,6 @@ class Buys(db.Model):
     )
 
 
-
-
-
-=======
 class Owns(db.Model):
     __tablename__ = 'owns'
     sid = db.Column(db.Integer, db.ForeignKey('Seller.sid'))
@@ -76,4 +71,3 @@ class Owns(db.Model):
         db.PrimaryKeyConstraint('sid', 'pid'),
     )
 
->>>>>>> ca71d2cda01c55ef8c9dce60257c4b4bbd90e298
