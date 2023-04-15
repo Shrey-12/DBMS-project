@@ -154,6 +154,17 @@ def owners():
     # session.pop('url')
     return render_template('seller.html')
 
+
+@app.route('/agency')
+def agency():
+    query = text("Select * from Agent")
+    result_agent = db.session.execute(query)
+    return render_template('agentoffice.html', homes = result_agent)
+
+
+
+
+
 '''@app.route('/submit', methods=['POST'])
 def submit():
     session['url'] = "submit"
