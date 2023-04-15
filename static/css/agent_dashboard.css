@@ -1,0 +1,69 @@
+/* General Styles */
+
+html {
+    font-size: 62.5%; /* Sets the base font size to 10px */
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.6rem; /* Sets the base font size to 16px */
+    color: #222;
+    margin: 0;
+  }
+  
+  h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .board {
+    margin-bottom: 4rem;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    text-align: left;
+    padding: 1rem;
+  }
+  
+  th {
+    background-color: #F6F6F6;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #F9F9F9;
+  }
+  
+  /* Specific Styles */
+  
+  .i-name {
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+  
+  .sellButton {
+    padding: 1rem 2rem;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.4rem;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .sellButton:hover {
+    background-color: #F6F6F6;
+    color: black;
+    cursor: pointer;
+  }
+  
