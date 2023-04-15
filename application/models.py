@@ -41,3 +41,12 @@ class Sells(db.Model):
     __table_args__ = (
         db.PrimaryKeyConstraint('pid', 'agent_id'),
     )
+
+class Owns(db.Model):
+    __tablename__ = 'owns'
+    sid = db.Column(db.Integer, db.ForeignKey('Seller.sid'))
+    pid = db.Column(db.Integer, db.ForeignKey('Property.pid'))
+    __table_args__ = (
+        db.PrimaryKeyConstraint('sid', 'pid'),
+    )
+

@@ -24,6 +24,7 @@ from application.controllers_agent import *
 from application.controllers_office import *
 from application.controllers_seller import *
 from application.controllers_login import *
+from application.controllers_agentDashboard import *
 
 
 if __name__ == "__main__":
