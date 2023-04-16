@@ -148,11 +148,11 @@ def blue_hils():
     return redirect(url_for('home'))
 
 
-@app.route('/buyer/owners')
+'''@app.route('/buyer/owners')
 def owners():
     # session['url'] = 'owners'
     # session.pop('url')
-    return render_template('seller.html')
+    return render_template('seller.html')'''
 
 
 '''@app.route('/buyer/agency')
