@@ -26,14 +26,14 @@ def agent_det(name):
 
 @app.route('/agency')
 def agency():
-    query = text("Select * from Agent")
+    query = text("Select * from agent")
     result_agent = db.session.execute(query)
     result_agent1 = db.session.execute(query)
     return render_template('agentoffice.html', agents = result_agent, homes = result_agent1)
 
 @app.route("/agency/<name>", methods=["GET", "POST"])
 def agent_det(name):
-    query = text("SELECT * FROM Agent WHERE agent_name= :aname")
+    query = text("SELECT * FROM agent WHERE agent_name= :aname")
     search_params1 = {
         'aname': name
     }
@@ -41,7 +41,7 @@ def agent_det(name):
 
     query_search = text(
         """WITH prop(pid) AS
-        (SELECT pid FROM sells WHERE agent_id = (SELECT agent_id FROM Agent WHERE agent_name= :aname))
+        (SELECT pid FROM sells WHERE agent_id = (SELECT agent_id FROM agent WHERE agent_name= :aname))
         SELECT * FROM buys NATURAL JOIN prop NATURAL JOIN property;"""
     )
     search_params2 = {
