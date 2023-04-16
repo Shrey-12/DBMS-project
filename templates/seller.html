@@ -78,6 +78,7 @@
         <div id="carouselExample" class="carousel slide">
           <div class="carousel-inner">
             <!-- add jinja loop here for all items -->
+            {%for agent in agents%}
             <div class="carousel-item active c-item">
               <div class="agent-info">
                 <div class="agent-image">
@@ -90,12 +91,13 @@
                 </div>
                 <div class="agent-name">
                   <!-- jinja variables instead of these properties -->
-                  <h3>Anant Sharma</h3>
+                  <h3>{{agent.agent_name}}</h3>
                 </div>
-                <p>Rating : *****</p>
-                <p>Base Commision : $ 1000<br /></p>
+                <p>Rating : {{agent.rating}}</p>
+                <p>Base Commision : {{agent.base_commission}}<br /></p>
               </div>
             </div>
+            {%endfor%}
           </div>
           <button
             class="carousel-control-prev"
@@ -116,6 +118,7 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+        
         <!-- add bootstrap dropdown menu here -->
         <div class="dropdown select-agent-class">
           <button

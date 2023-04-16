@@ -220,6 +220,8 @@
                     <th>Properties Sold</th>
                     <th>Rental Sales</th>
                     <th>Sell Sales</th>
+                    <th>Rating</th>
+                    <th>Base Commission</th>
                 </tr>
                 {% for home in homes %}
                 <tr>
@@ -229,6 +231,8 @@
                     <td>{{home.no_sold}}</td>
                     <td>{{home.rental_sales}}</td>
                     <td>{{home.sold_sales}}</td>
+                    <td>{{home.rating}}</td>
+                    <td>{{home.base_commission}}</td>
                 </tr>
                 {% endfor %}
             </table>
