@@ -291,3 +291,10 @@ td {
 tr:nth-child(odd){
     background-color: rgb(240, 240, 240);
 }
+
+
+@media only screen and (max-width:1320px)
+{   
+    header
+
+}
