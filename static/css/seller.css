@@ -1,5 +1,10 @@
+
 *{
   font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  background-color: #212529;
 }
 .sell-property-heading {
   text-align: center;
