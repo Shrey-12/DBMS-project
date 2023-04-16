@@ -49,7 +49,7 @@ def agent_det(name):
     }
     results2 = db.session.execute(query_search, search_params2).fetchall()
 
-    return render_template("agentinfosales.html", names = name, agents=results1, homes=results2)
+    return render_template("agentinfosales.html", agent=results1[0], homes=results2)
 
 
 '''@app.route("/agency/<name>", methods=["GET", "POST"])

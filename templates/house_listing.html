@@ -31,7 +31,7 @@
           <li><a href="/buyer">For Buyers / Tenants</a></li>
           <li><a href="/buyer/owners">For Owners</a></li>
           <li>
-            <a href="{{url_for('agent_dashboard', agent_id = 1845)}}"
+            <a href="/agent"
               >For Agents</a
             >
           </li>
@@ -158,7 +158,7 @@
                     <button
                       class="Agent-button"
                       id="{{home.agent_name}}"
-                      onclick="window.location.href = '/{{home.agent_name}}';"
+                      onclick="window.location.href = '/buyer/{{home.agent_name}}';"
                     >
                       Connect Now
                     </button>

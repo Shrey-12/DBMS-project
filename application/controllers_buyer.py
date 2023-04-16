@@ -105,7 +105,7 @@ def submit():
     session['url']= "submit"
     location = request.form['location']
     session['location'] = location
-
+    
     price_range = request.form.get('price', '')
     if price_range:
         price_range = price_range.replace('$', '').replace(',', '')

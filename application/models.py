@@ -71,6 +71,14 @@ class Owns(db.Model):
         db.PrimaryKeyConstraint('sid', 'pid'),
     )
 
+class Admin(db.Model):
+    __tablename__ = 'admin'
+    username = db.Column(db.String(50))
+    password = db.Column(db.String(50))
+    __table_args__ = (
+        db.PrimaryKeyConstraint('username', 'password'),
+    )
+
 def isValidUser(id, pass_word, user_type):
     print(id,pass_word,user_type)
     if(user_type == "user"):
@@ -87,6 +95,13 @@ def isValidUser(id, pass_word, user_type):
         agent = Agent.query.filter_by(agent_id = id, password = pass_word).first()
         
         if(agent is not None ):
+            return True
+        else:
+            return False
+        
+    elif(user_type == "agent_office"):
+        admin = Admin.query.filter_by(username = id , password = pass_word).first()
+        if(admin is not None):
             return True
         else:
             return False
