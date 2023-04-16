@@ -170,7 +170,7 @@ def connect(name):
     }
     results1 = db.session.execute(query, search_params1).fetchall()
 
-    return render_template('agentinfo.html', names = name, agents = results1)
+    return render_template('agentinfo.html',agent = results1[0])
 
 '''@app.route('/submit', methods=['POST'])
 def submit():

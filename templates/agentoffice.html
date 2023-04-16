@@ -72,7 +72,7 @@
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{url_for('static', filename='agent-images/a1967.jpg')}}" alt="">
+                    <img src="{{ url_for('static', filename='agent-images/a%d.jpg' % agent.agent_id) }}" alt="">
                 </div>
                 <a href="{{url_for('connect',name=agent.agent_name)}}"><h4>{{agent.agent_name}}</h4></a>
 
