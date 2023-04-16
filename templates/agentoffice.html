@@ -74,7 +74,7 @@
                 <div class="container-img">
                     <img src="{{url_for('static', filename='agent-images/a1967.jpg')}}" alt="">
                 </div>
-                <a href="/agency/{{agent.agent_name}}"><h4>{{agent.agent_name}}</h4></a>
+                <a href="{{url_for('connect',name=agent.agent_name)}}"><h4>{{agent.agent_name}}</h4></a>
 
 
                 <div class="stars">
