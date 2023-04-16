@@ -30,7 +30,11 @@
         <ul>
           <li><a href="/">For Buyers / Tenants</a></li>
           <li><a href="/owners">For Owners</a></li>
-          <li><a href="{{url_for('agent_dashboard', agent_id = 1845)}}">For Agents</a></li>
+          <li>
+            <a href="{{url_for('agent_dashboard', agent_id = 1845)}}"
+              >For Agents</a
+            >
+          </li>
           <li><a href="/agency">For Agency</a></li>
           <li><a href="#">About Us</a></li>
         </ul>
@@ -124,7 +128,7 @@
           </div>
           <div class="grid-container">
             {% for home in homes%}
-            <div class="grid-items" onclick="location.href='/{{home.agent_name}}';">
+            <div class="grid-items">
               <div class="fill">
                 <img
                   src="{{ url_for('static', filename='property_images/p%d.jpg' % home.pid) }}"
@@ -150,7 +154,15 @@
                 </tr>
                 <tr id="row4">
                   <td colspan="2">Agent Details : {{home.agent_name}}</td>
-                  <a href="/{{home.agent_name}}"><td><button class="Agent-button">Connect Now</button></td></a>
+                  <td>
+                    <button
+                      class="Agent-button"
+                      id="{{home.agent_name}}"
+                      onclick="window.location.href = '/{{home.agent_name}}';"
+                    >
+                      Connect Now
+                    </button>
+                  </td>
                 </tr>
               </table>
             </div>

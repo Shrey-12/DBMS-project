@@ -1,136 +1,184 @@
-*{
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Use Open Sans font for all text */
+body {
   font-family: 'Open Sans', sans-serif;
 }
-.sell-property-heading {
-  text-align: center;
-  margin-top: 125px;
+
+/* Navbar styles */
+.navbar {
+  background-color: #ffffff;
+  height: 90px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-.sell-property-heading h2 {
+.navbar-brand {
+  padding-top: 20px;
+}
+
+.nav-link {
+  color: #707070;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+  color: #fd3752;
+}
+
+/* Hero section styles */
+.hero-section {
+  background-image: url('https://www.luxenorcalhomes.com/wp-content/uploads/2021/08/3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+  position: relative;
+}
+
+.hero-section h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 250px;
+}
+
+/* About section styles */
+.about-section {
+  padding: 100px 0;
+}
+
+.about-section h2 {
   font-size: 36px;
   font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.about-section p {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: justify;
+  margin-bottom: 50px;
+}
+
+/* Property section styles */
+.property-section {
+  padding: 100px 0;
+}
+
+.property-section h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.property-card {
+  border: 1px solid #e0e0e0;
   margin-bottom: 30px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
+.property-card:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
 
-.sell-property-container {
-  display: flex;
-  justify-content: center;
-  max-width: 800px;
+.property-card-img {
+  height: 250px;
   width: 100%;
-  margin: 0 auto;
+  object-fit: cover;
+}
+
+.property-card-body {
   padding: 20px;
 }
 
-.grey-div {
-  background-color: #f1f1f1;
-  padding: 20px;
-  margin-right: 20px;
-  flex-basis: 50%;
-  box-sizing: border-box;
+.property-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.property-form {
-  flex-basis: 50%;
-  box-sizing: border-box;
+.property-card-price {
+  font-size: 20px;
+  color: #fd3752;
+  margin-bottom: 10px;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.property-card-location {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-/* add any other styles as needed */
-
-.agent-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: rgb(211, 211, 211);
-}
-.agent-name {
+.property-card-link {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: right;
+  color: #fd3752;
   margin-top: 10px;
 }
 
-.property-form input {
-  margin-bottom: 20px;
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  border: 1px solid #212529;
+.property-card-link:hover {
+  color: #d22f3d;
 }
 
-.property-form h4 {
-  margin-bottom: 10px;
+/* Contact section styles */
+.contact-section {
+  background-color: #f1f1f1;
+  padding: 100px 0;
+}
+
+.contact-section h2 {
+  font-size: 36px;
   font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-.property-form input[type="submit"] {
+.contact-form {
+  max-width: 600px
+
+}
+.contact-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  }
+  
+  .contact-form input[type='text'], .contact-form input[type='email'], .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-form textarea {
+  height: 150px;
+  }
+  
+  .contact-form input[type='submit'] {
   background-color: #fd3752;
-  color: #fff;
+  color: #ffffff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 18px;
-  transition: all 0.3s ease-in-out;
-}
-
-.property-form input[type="submit"]:hover {
-  background-color: #fd3752;
-  color: #212529;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  border: 1px solid #212529;
-}
-
-.property-form input[type="rent"] {
-  background-color: #2b3035;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  transition: all 0.3s ease-in-out;
-  margin-right: 10px; /* add margin to create space between the buttons */
-}
-
-.property-form input[type="rent"]:hover {
-  background-color: #fff;
-  color: #212529;
-  cursor: pointer;
-  border: 1px solid #212529;
-}
-
-.property-form .btn-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.select-agent-class{
-  margin-top:20px;
-}
-
-.select-agent{
-  width:100%;
-  height:50px;
-  background-color: #2b3035 !important;
-  color: white !important;
-}
-
-.navbar {
-  font-size: 20px; /* Increase font size */
-  height: 90px; /* Increase height */
-}
-
-.agent-image{
-  height:350px;
-}
-
-.c-img{
-  height: 100%;
-  overflow: hidden;
-}
+  transition: background-color 0.3s ease-in-out;
+  }
+  
+  .contact-form input[type='submit']:hover {
+  background-color: #d22f3d;
+  }

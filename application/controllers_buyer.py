@@ -157,14 +157,14 @@ def owners():
 
 @app.route('/agency')
 def agency():
-    query = text("Select * from Agent")
+    query = text("Select * from agent")
     result_agent = db.session.execute(query)
     result_agent1 = db.session.execute(query)
     return render_template('agentoffice.html', agents = result_agent, homes = result_agent1)
 
 @app.route("/<name>")
 def connect(name):
-    query = text("SELECT * FROM Agent WHERE agent_name= :aname")
+    query = text("SELECT * FROM agent WHERE agent_name= :aname")
     search_params1 = {
         'aname': name
     }
