@@ -1,5 +1,5 @@
 from application.database import db
-
+from sqlalchemy import *
 
 class Property(db.Model):
     __tablename__ = 'property'
@@ -71,3 +71,21 @@ class Owns(db.Model):
         db.PrimaryKeyConstraint('sid', 'pid'),
     )
 
+def isValidUser(id, pass_word, user_type):
+    if(user_type == "user"):
+        buyer = Buyer.query.filter_by(bid=id, password = pass_word).first()
+        
+        if(buyer is not None ):
+            print("in buyer")
+            return True
+        else:
+            print("not in buyer")
+            return False
+    elif(user_type == "agent"):
+        agent = Agent.query.filter_by(agent_id = id, password = pass_word).first()
+        
+        if(agent is not None ):
+            return True
+        else:
+            return False
+    

@@ -6,7 +6,7 @@ from sqlalchemy import text
 
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/buyer", methods=["GET", "POST"])
 def home():
     print("Hello")
     '''home_og = Property.query.all()'''
@@ -100,7 +100,7 @@ def home():
 
     
 
-@app.route('/submit', methods=['POST'])
+@app.route('/buyer/submit', methods=['POST'])
 def submit():
     session['url']= "submit"
     location = request.form['location']
@@ -127,7 +127,7 @@ def submit():
     return redirect(url_for('home'))
 
 
-@app.route('/Asylum Hill')
+@app.route('/buyer/Asylum Hill')
 def asylum_hill():
     session['url'] = 'Asylum Hill'
     session['location'] = 'Asylum Hill'
@@ -135,34 +135,34 @@ def asylum_hill():
     return redirect(url_for('home'))
 
 
-@app.route('/Barry Square')
+@app.route('/buyer/Barry Square')
 def barry_square():
     session['url'] = 'Barry Square'
     session['location'] = 'Barry Square'
     return redirect(url_for('home'))
 
-@app.route('/Blue Hills')
+@app.route('/buyer/Blue Hills')
 def blue_hils():
     session['url'] = 'Blue Hills'
     session['location'] = 'Blue Hills'
     return redirect(url_for('home'))
 
 
-@app.route('/owners')
+@app.route('/buyer/owners')
 def owners():
     # session['url'] = 'owners'
     # session.pop('url')
     return render_template('seller.html')
 
 
-@app.route('/agency')
+'''@app.route('/buyer/agency')
 def agency():
     query = text("Select * from agent")
     result_agent = db.session.execute(query)
     result_agent1 = db.session.execute(query)
     return render_template('agentoffice.html', agents = result_agent, homes = result_agent1)
-
-@app.route("/<name>")
+'''
+@app.route("/buyer/<name>")
 def connect(name):
     query = text("SELECT * FROM agent WHERE agent_name= :aname")
     search_params1 = {
