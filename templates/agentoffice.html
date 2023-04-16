@@ -10,13 +10,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Noto+Sans:wght@300&family=Zeyada&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Poppins&family=Noto+Sans:wght@300&family=Zeyada&family=Josefin+Sans&family=Noto+Sans&family=Noto+Sans+JP&family=Open+Sans:wght@500;700&family=PT+Sans&display=swap"
         rel="stylesheet">
+
 
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <style>
         :root{
-            --background-url: url("{{ url_for('static', filename='/agent-images/estate.jpg')}}");
+            --bg1: url("{{ url_for('static', filename='/agent-images/estate.jpg')}}");
+            --bg2: url("{{ url_for('static', filename='/agent-images/bg2.jpg')}}");
+            --bg3: url("{{ url_for('static', filename='/agent-images/bg3.png')}}");
         }
     </style>
 </head>
@@ -28,9 +31,11 @@
 
         <ul class="navbar">
             <li><a href="#homescreen">Homepage</a></li>
+            <li><a href="#">House listing</a></li>
             <li><a href="#sales-report">Sales Report</a></li>
             <li><a href="#agent-profile">Agent Profile</a></li>
             <li><a href="agentinfo.html">Contact us</a></li>
+
         </ul>
     </header>
 
@@ -40,23 +45,26 @@
             <h1>ROSEVILLE GREENWICH</h1>
             <p>Move to what moves you</p>
         </div>
-        <!-- <div class="display">
-            <div class="box">
-                <span>Years Experience</span>
-                <p>10+</p>
+
+        <div class="select">
+            <div class="card">
+                <h5>In Service</h5>
+                <h4>10yrs+</h4>
             </div>
-            <div class="box">
-                <span>Team Members</span>
-                <p>167</p>
+            <div class="card">
+                <h5>Team Members</h5>
+                <h4>167</h4>
             </div>
-            <div class="box">
-                <span>Satisfied Clients</span>
-                <p>1345</p>
+            <div class="card">
+                <h5>Satisfied Clients</h5>
+                <h4>1345</h4>
             </div>
-            <div class="box">
-                <span>Projects</span>
-                <p>1599</p>
-            </div> -->
+            <div class="card">
+                <h5>Projects</h5>
+                <h4>1456</h4>
+            </div>
+        </div>
+ 
         </div>
     </section>
 
@@ -77,13 +85,13 @@
                 <a href="{{url_for('connect',name=agent.agent_name)}}"><h4>{{agent.agent_name}}</h4></a>
 
 
-                <div class="stars">
+                <!-- <div class="stars">
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>           
-                </div>
+                </div> -->
 
             </div>
             {%endfor%}
