@@ -1,5 +1,4 @@
 from flask import current_app as app, flash
-from application.models import Property
 from flask import render_template, request, session, redirect, url_for
 from application.database import db
 from sqlalchemy import text
@@ -21,6 +20,7 @@ def owners_submit():
     if request.method == "POST":
         max_existing_pid = db.session.query(db.func.max(Property.pid)).scalar()
         new_pid = max_existing_pid + 1 if max_existing_pid is not None else 1
+        session['new_pid'] = new_pid
         new_property = Property(
             pid         = new_pid,
             house_no    = request.form['house-no'],
@@ -39,9 +39,34 @@ def owners_submit():
         )
         db.session.add(new_property)
         db.session.commit()
-        return f"Form submitted successfully."
+        other_update()
+        return render_template("seller_submit.html")
 
     else:
       query = text("Select * from agent")
       result = db.session.execute(query)
       return render_template("seller.html", agents = result)
+
+def other_update():
+    if request.method == "POST":
+        new_pid = session.get('new_pid')
+        chosen_aid = request.form['agent_id']
+        seller_id = request.form['sid']
+    
+        new_owns = Owns(
+            pid = new_pid,
+            sid = seller_id,
+            current_owner = 1
+        )
+    
+        new_sells = Sells(
+            pid = new_pid,
+            agent_id = chosen_aid
+        )
+    
+        db.session.add(new_sells)
+        db.session.commit()
+
+        db.session.add(new_owns)
+        db.session.commit()
+        return " "
