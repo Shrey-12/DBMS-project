@@ -16,6 +16,8 @@ def users():
 def login(type):
     u_type = type
     if request.method == "POST":
+        
+        print("type "+u_type)
         session.permanent = True
         id = request.form.get("Username")
         password = request.form.get("Password")
@@ -25,7 +27,7 @@ def login(type):
 
             print("You have been logged in successfully ")
             if(type == "user"):
-                return redirect(url_for("buyer"))
+                return redirect(url_for("home"))
             elif(type == "agent_office"):
                 return redirect(url_for('agency'))
             elif(type == "agent"):
@@ -34,12 +36,13 @@ def login(type):
         else:
             print("Try again")
             return redirect(url_for('login',type = u_type))
+
     else:
-        if "user" in session:
-            flash("Already Logged in")
-            return redirect(url_for("user"))
+        # if "user" in session:
+        #     flash("Already Logged in")
+        #     return redirect(url_for("user"))
         print("home")
-        return render_template("login.html")
+        return render_template("login.html",types=u_type)
 
 
 
