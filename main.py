@@ -16,7 +16,7 @@ def build_app():
     db.init_app(app)
     app.app_context().push()
     return app
-
+     
 
 app = build_app()
 from application.controllers_buyer import *

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgentInfoSales</title>
+    <title>AgentInfo</title>
 
     <!--                 Custom Css              -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/agentsInfo.css')  }}">
@@ -35,8 +35,12 @@
         <!--                 User Main-Profile               -->
         <section class="userProfile card">
             <div class="profile">
-                <figure><img src="{{url_for('static', filename='images/agent2.jpg')}}" alt="profile" width="250px" height="250px"></figure>
+            {% for agent in agents %}
+                <figure><img src="{{ url_for('static', filename='a' ~ agent.agent_id|string ~ '.jpg') }}" alt="profile" width="250px" height="250px"></figure>
+            {% endfor %}
             </div>
+        </section>
+
             <!-- <div class="stars">
                 <a href="#"><i class='bx bxs-star'></i></a>
                 <a href="#"><i class='bx bxs-star'></i></a>
