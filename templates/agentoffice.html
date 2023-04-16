@@ -82,7 +82,7 @@
                 <div class="container-img">
                     <img src="{{ url_for('static', filename='agent-images/a%d.jpg' % agent.agent_id) }}" alt="">
                 </div>
-                <a href="{{url_for('connect',name=agent.agent_name)}}"><h4>{{agent.agent_name}}</h4></a>
+                <a href="/agency/{{agent.agent_name}}"><h4>{{agent.agent_name}}</h4></a>
 
 
                 <!-- <div class="stars">
@@ -228,6 +228,8 @@
                     <th>Properties Sold</th>
                     <th>Rental Sales</th>
                     <th>Sell Sales</th>
+                    <th>Rating</th>
+                    <th>Base Commission</th>
                 </tr>
                 {% for home in homes %}
                 <tr>
@@ -237,6 +239,8 @@
                     <td>{{home.no_sold}}</td>
                     <td>{{home.rental_sales}}</td>
                     <td>{{home.sold_sales}}</td>
+                    <td>{{home.rating}}</td>
+                    <td>{{home.base_commission}}</td>
                 </tr>
                 {% endfor %}
             </table>

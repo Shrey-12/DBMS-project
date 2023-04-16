@@ -49,20 +49,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-4">
             <li class="nav-item mx-2">
-              <a class="nav-link" href="{{url_for('home')}}"
+              <a class="nav-link" href="/buyer"
                 >For Buyers/Tenants</a
               >
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="#"
+              <a class="nav-link active" aria-current="page" href="/owners"
                 >For Owners</a
               >
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#">For Agents</a>
+              <a class="nav-link" href="/agent">For Agents</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#">For Agency</a>
+              <a class="nav-link" href="/agent_office">For Agency</a>
             </li>
           </ul>
         </div>
@@ -78,6 +78,7 @@
         <div id="carouselExample" class="carousel slide">
           <div class="carousel-inner">
             <!-- add jinja loop here for all items -->
+            {%for agent in agents%}
             <div class="carousel-item active c-item">
               <div class="agent-info">
                 <div class="agent-image">
@@ -90,12 +91,13 @@
                 </div>
                 <div class="agent-name">
                   <!-- jinja variables instead of these properties -->
-                  <h3>Anant Sharma</h3>
+                  <h3>{{agent.agent_name}}</h3>
                 </div>
-                <p>Rating : *****</p>
-                <p>Base Commision : $ 1000<br /></p>
+                <p>Rating : {{agent.rating}}</p>
+                <p>Base Commision : {{agent.base_commission}}<br /></p>
               </div>
             </div>
+            {%endfor%}
           </div>
           <button
             class="carousel-control-prev"
@@ -116,6 +118,7 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+        
         <!-- add bootstrap dropdown menu here -->
         <div class="dropdown select-agent-class">
           <button
@@ -134,9 +137,16 @@
         </div>
       </div>
       <div class="property-form">
-        <form>
+        <form method = POST action = "/owners/submit">
           <!-- form fields and buttons -->
           <div>
+            <input
+            type="number"
+            maxlength="256"
+            name="sid"
+            placeholder="Login ID"
+            required
+          />
             <input
               type="text"
               maxlength="256"
@@ -202,8 +212,15 @@
               placeholder="Bedrooms"
               required
             />
+            <input
+            type="text"
+            maxlength="256"
+            name="avail"
+            placeholder="Rent / Sale"
+            required
+          />
           </div>
-          <div>
+          <!-- <div>
             <h4>Property Type</h4>
             <div class="btn-container">
               <input
@@ -220,8 +237,8 @@
               />
             </div>
           </div>
-          <div></div>
-          <div>
+          <div></div>-->
+          <div> 
             <input
               type="submit"
               value="Post Your Property"
