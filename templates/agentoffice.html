@@ -59,19 +59,22 @@
             </div> -->
         </div>
     </section>
-    <section class="container" id="agent-profile">
-        
+
+
+    <section class="container" id="agent-profile"> 
         <div class="text">
         <h2>AGENT PROFILES</h2>
         </div>
-        {%for agent in agents%}
+
         <div class="row-items">
+
+        {%for agent in agents%}
 
             <div class="container-box">
                 <div class="container-img">
-                    <img src="{{url_for('static', filename='agent-images/a1967.jpg')}}" alt="">
+                    <img src="{{ url_for('static', filename='agent-images/a%d.jpg' % agent.agent_id) }}" alt="">
                 </div>
-                <a href="/agency/{{agent.agent_name}}"><h4>{{agent.agent_name}}</h4></a>
+                <a href="{{url_for('connect',name=agent.agent_name)}}"><h4>{{agent.agent_name}}</h4></a>
 
 
                 <div class="stars">
@@ -84,6 +87,9 @@
 
             </div>
             {%endfor%}
+         </div>
+    </section>
+          
 <!-- 
             <div class="container-box">
                 <div class="container-img">
@@ -227,7 +233,7 @@
                 {% endfor %}
             </table>
         
-    </section>
+        </section>
     
 </body>
 </html>

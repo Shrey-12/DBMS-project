@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <title>Roseville and Sacramento</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="../static/css/seller.css" rel="stylesheet" type="text/css" />
     <link
       href="../static/favicon.ico"
       rel="shortcut icon"
@@ -16,44 +15,59 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/seller.css')  }}"
+      type="text/css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Roseville Greenwich</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <!-- add links to other pages -->
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-4">
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="{{url_for('home')}}">For Buyers/Tenants</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="#">For Owners</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#">For Agents</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#">For Agency</a>
-              </li>
-            </ul>
-          </div>
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Roseville Greenwich</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- add links to other pages -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-4">
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="{{url_for('home')}}"
+                >For Buyers/Tenants</a
+              >
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link active" aria-current="page" href="#"
+                >For Owners</a
+              >
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#">For Agents</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#">For Agency</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
     <div class="sell-property-heading">
       <h2>Sell your property</h2>
     </div>
@@ -225,8 +239,3 @@
     ></script>
   </body>
 </html>
-
-
-
-
-

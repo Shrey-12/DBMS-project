@@ -157,22 +157,22 @@ def owners():
 
 '''@app.route('/buyer/agency')
 def agency():
-    query = text("Select * from Agent")
+    query = text("Select * from agent")
     result_agent = db.session.execute(query)
     result_agent1 = db.session.execute(query)
     return render_template('agentoffice.html', agents = result_agent, homes = result_agent1)
 '''
 @app.route("/buyer/<name>")
 def connect(name):
-    query = text("SELECT * FROM Agent WHERE agent_name= :aname")
+    query = text("SELECT * FROM agent WHERE agent_name= :aname")
     search_params1 = {
         'aname': name
     }
     results1 = db.session.execute(query, search_params1).fetchall()
 
-    return render_template('agentinfo.html', names = name, agents = results1)
-'''
-@app.route('/submit', methods=['POST'])
+    return render_template('agentinfo.html',agent = results1[0])
+
+'''@app.route('/submit', methods=['POST'])
 def submit():
     session['url'] = "submit"
     location = request.form['location']
