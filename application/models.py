@@ -72,9 +72,11 @@ class Owns(db.Model):
     )
 
 def isValidUser(id, pass_word, user_type):
+    print(id,pass_word,user_type)
     if(user_type == "user"):
+
         buyer = Buyer.query.filter_by(bid=id, password = pass_word).first()
-        
+        print(buyer)
         if(buyer is not None ):
             print("in buyer")
             return True
