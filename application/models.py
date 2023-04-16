@@ -50,12 +50,18 @@ class Buyer(db.Model):
     contact_no =  db.Column(db.Numeric(10,0))
     area =  db.Column(db.String(50))
     budget = db.Column(db.Integer)
-    
+
+class Seller(db.Model):
+    tablename = 'seller'
+    sid         = db.Column(db.Integer, primary_key = True)			
+    password    = db.Column(db.String(50))	
+    seller_name = db.Column(db.String(50))
+    contact_no 	= db.Column(db.Numeric(10,0))   
 
 class Buys(db.Model):
     __tablename__ = 'buys'
-    pid = db.Column(db.Integer, db.ForeignKey('Property.pid'))
-    bid = db.Column(db.Integer, db.ForeignKey('Buyer.bid'))
+    pid = db.Column(db.Integer, db.ForeignKey('property.pid'))
+    bid = db.Column(db.Integer, db.ForeignKey('buyer.bid'))
     year_sold = db.Column(db.Integer)
     market_out = db.Column(db.Date)
     __table_args__ = (
@@ -65,8 +71,8 @@ class Buys(db.Model):
 
 class Owns(db.Model):
     __tablename__ = 'owns'
-    sid = db.Column(db.Integer, db.ForeignKey('Seller.sid'))
-    pid = db.Column(db.Integer, db.ForeignKey('Property.pid'))
+    sid = db.Column(db.Integer, db.ForeignKey('seller.sid'))
+    pid = db.Column(db.Integer, db.ForeignKey('property.pid'))
     __table_args__ = (
         db.PrimaryKeyConstraint('sid', 'pid'),
     )

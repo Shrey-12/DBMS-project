@@ -134,9 +134,16 @@
         </div>
       </div>
       <div class="property-form">
-        <form>
+        <form method = POST action = "/owners/submit">
           <!-- form fields and buttons -->
           <div>
+            <input
+            type="number"
+            maxlength="256"
+            name="sid"
+            placeholder="Login ID"
+            required
+          />
             <input
               type="text"
               maxlength="256"
@@ -202,8 +209,15 @@
               placeholder="Bedrooms"
               required
             />
+            <input
+            type="text"
+            maxlength="256"
+            name="avail"
+            placeholder="Rent / Sale"
+            required
+          />
           </div>
-          <div>
+          <!-- <div>
             <h4>Property Type</h4>
             <div class="btn-container">
               <input
@@ -220,8 +234,8 @@
               />
             </div>
           </div>
-          <div></div>
-          <div>
+          <div></div>-->
+          <div> 
             <input
               type="submit"
               value="Post Your Property"
