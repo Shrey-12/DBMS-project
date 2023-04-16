@@ -90,12 +90,15 @@ def isValidUser(id, pass_word, user_type):
     if(user_type == "user"):
 
         buyer = Buyer.query.filter_by(bid=id, password = pass_word).first()
+        seller = Seller.query.filter_by(sid=id, password = pass_word).first()
         print(buyer)
         if(buyer is not None ):
             print("in buyer")
             return True
+        elif(seller is not None):
+            return True
         else:
-            print("not in buyer")
+            print("not in buyer or seller")
             return False
     elif(user_type == "agent"):
         agent = Agent.query.filter_by(agent_id = id, password = pass_word).first()
