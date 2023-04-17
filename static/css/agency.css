@@ -25,8 +25,8 @@
 header {
     /* outline: 2px solid coral; */
     position: fixed;
-    top: 0;
-    right: 0;
+    /* top: 0; */
+    /* right: 0; */
     width: 100%;
     z-index: 1000;
     display: flex;
@@ -36,8 +36,8 @@ header {
     padding: 30px 60px;
     transition: ease 0.3s;
     height: 105px;
-    height: 80px;
-    background-color: rgb(0, 0, 0,0.5);
+    height: 85px;
+    /* background-color: rgb(0, 0, 0,0.5); */
     background-color: rgb(0, 0, 0);
 }
 
@@ -48,9 +48,11 @@ header {
 
 .navbar a {
     color: #f0eded;
+    display: inline-block;
+    position: relative;
     font-size: 1.2rem;
     /* font-weight: 500; */
-    padding: 15px 20px;
+    padding: 12px 20px;
     border-radius: 4px;
     transition: ease .40s;
     font-family: 'Times New Roman', Times, serif;
@@ -58,36 +60,67 @@ header {
     /* border: 1px solid; */
     margin: 0px 10px 0px 0px;
     /* box-shadow: 2.5px 2.5px rgb(85 85 85/20%); */
-    /* background: rgb(225, 247, 247); */
+}
+
+.navbar a::after{
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: white;
+    bottom: -8px;
 }
 
 .navbar a:hover {
     transition: 0.3s;
-   text-transform: scale(1.05);
+   transform: scale(1.05);
 /* -webkit-transform: scale(1.05); */
-   background-color: rgb(0, 0, 0,0.3)
+   background:white;
+   color: rgb(0, 0, 0);
 }
 .logo{
-    top: 0%;
-    left: 0%;
+    /* top: 0%; */
+    /* left: 0%; */
 }
 .logo img{
     height: 70px;
+    background-color: black;
+    padding: 5px;
 }
 .homescreen {
-    position: relative;
+    /* position: relative; */
     width: 100%;
     height: 100vh;
-    /* background:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),url(/images/estate.jpg) ; */
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), var(--background-url);
+    background:var(--bg2);
     background-size: cover;
     background-position: center;
-    /* display: grid;
-    grid-template-columns: repeat(1, 1fr); */
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     text-align: center;
+    transition: 3s;
+
+    /* animation-name: animate;
+    animation-direction: normal ;
+    animation-duration: 15s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out; */
+}
+
+@keyframes animate {
+    0%{
+        background-image: var(--bg1);
+    }
+    50%{
+        background-image: var(--bg2);
+    }
+    100%{
+        background-image: var(--bg3);
+    }   
 }
 
 .hometext{
@@ -96,7 +129,7 @@ header {
     /* right: 15%; */
     /* left: 28% ; */
     /* margin-bottom: 20%; */
-    /* background-color: rgb(0, 0, 0,0.5); */
+    background-color: rgb(0, 0, 0,0.5);
     padding: 20px;
     /* margin-top: 9rem; */
     align-items: center;
@@ -105,7 +138,7 @@ header {
 
 .hometext h1{
     font-size: 4.5rem;
-    /* margin-top: 10rem; */
+    margin-top: 12rem;
     /* font-size: 64px; */
     background: linear-gradient(180deg,rgb(172, 133, 13),rgb(255, 242, 141),rgb(187, 146, 25));
     -webkit-text-fill-color: transparent;
@@ -135,36 +168,56 @@ header {
     outline-offset: 10px;
 }
 
-/* .homescreen .display{
-    display: grid;
-    padding: 20px;
-    margin: 0 18%;
-    grid-template-columns: repeat(4, 1fr);  
-    grid-gap: 2rem;
-    border-radius: 10px;
-    background: rgb(0, 0, 0,0.5);
-    
-}
 
-.homescreen .display .box{
-    background-color: #e0cfcf;
-    padding: 0.5rem 0;
+.homescreen .select{
+    /* width: 70% ; */
+    height: 135px;
+    background: #FFF;
+    border-radius: 0 10px 10px 10px;
+    position: relative;
+    padding: 10px 20px;
+    /* box-shadow: 0 5px 20px -1px rgb(214,214,214); */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
     text-align: center;
-    justify-content: center;
-    border-radius: 15px;
+    margin: 0 18%;
 }
 
-.box span{
-    font-size: 1.1rem;
-    font-family: sans-serif;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+.select .card{
+    width: 22%;
+    height: 90%;
+    border: 2px solid rgb(226,226,226,0.7);
+    border-radius: 10px ;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Anonymous Pro', monospace;
+        font-family: 'Josefin Sans', sans-serif;
+        font-family: 'Noto Sans', sans-serif;
+        font-family: 'Noto Sans JP', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
+        font-family: 'PT Sans', sans-serif;
 }
-.box p{
-    margin-top: 0.7rem;
+
+.card h5{
     font-size: 1.5rem;
-    font-weight: bolder;
-} */
+    font-weight: 500;
+    margin-top: 3px;
+    /* font-family: 'Noto Sans', sans-serif; */
+    /* outline: 2px solid ; */
+}
+
+.card h4{
+    /* border: none; */
+    /* outline: none; */
+    margin-top: 5px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background:none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+
+}
 
 .container{
     margin: 5rem 4rem;
@@ -173,6 +226,7 @@ header {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    /* background-color: black; */
     /* outline: 2px solid orange; */
     
 }
@@ -239,6 +293,8 @@ header {
     text-transform: uppercase;
     /* background-color: #f0eded; */
     /* margin-bottom: 8px; */
+    margin-top: 8px;
+    color: black;
 }
 
 .stars{
@@ -263,6 +319,7 @@ header {
 .sales_report h1 {
     font-size: 3rem;
     font-weight: 500;
+    margin-bottom: 3rem;
 }
 
 table {
@@ -291,3 +348,10 @@ td {
 tr:nth-child(odd){
     background-color: rgb(240, 240, 240);
 }
+
+
+/* @media only screen and (max-width:1320px)
+{   
+    header
+
+} */
