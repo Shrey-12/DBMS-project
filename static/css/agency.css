@@ -511,7 +511,7 @@ tr:nth-child(odd){
 
 
 
-/* .image-container{
+.image-container{
     display: grid;
     margin: 0 27%;
     grid-gap :3rem;
@@ -519,4 +519,4 @@ tr:nth-child(odd){
 .image-container img{
     height: 30rem;
     width: auto;
-} */
+}

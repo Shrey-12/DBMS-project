@@ -233,6 +233,8 @@ header {
 .userDetails .userName h1 {
   font-size: 2.7rem;
   display: inline-block;
+
+  font-size: 4rem;
 }
 
 .userDetails .userName span{
@@ -317,23 +319,29 @@ header {
     justify-content: space-between;
     margin-bottom: 15px;
     /* transform: scale(1.1); */
+    align-items: center;
+    text-align: center;
 }
 
 .box h2 , p{
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
+  font-size: 1.7rem;
 }
 .box h2{
-  margin: 0.5rem 0;
+  margin: 2rem 0 3rem 0 ;
 }
-.box img {
+.box p{
+  font-size: 2.2rem;
+}
+
+/* .box img {
     height: 85px;
-    /* padding: 10px; */
-    /* box-shadow: 5px 5px 15px rgba(134, 131, 131, 0.2); */
+
     margin-top: 5px;
-    /* outline-offset: 10px; */
+
     cursor: pointer;
     filter: brightness(1);
-}
+} */
 
 .sales_report{
   position: relative;
