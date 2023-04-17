@@ -36,8 +36,8 @@ class Agent(db.Model):
 
 class Sells(db.Model):
     __tablename__ = 'sells'
-    pid = db.Column(db.Integer, db.ForeignKey('Property.pid'))
-    agent_id = db.Column(db.Integer, db.ForeignKey('Agent.agent_id'))
+    pid = db.Column(db.Integer, db.ForeignKey('property.pid'))
+    agent_id = db.Column(db.Integer, db.ForeignKey('agent.agent_id'))
     __table_args__ = (
         db.PrimaryKeyConstraint('pid', 'agent_id'),
     )
@@ -73,6 +73,7 @@ class Owns(db.Model):
     __tablename__ = 'owns'
     sid = db.Column(db.Integer, db.ForeignKey('seller.sid'))
     pid = db.Column(db.Integer, db.ForeignKey('property.pid'))
+    current_owner = db.Column(db.Integer)
     __table_args__ = (
         db.PrimaryKeyConstraint('sid', 'pid'),
     )
