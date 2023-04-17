@@ -32,7 +32,7 @@ def agent_dashboard(agent_id):
 @app.route('/agent/<agent_id>/dashboard/<pid>', methods= ['POST'])
 def buys(agent_id, pid):
     query1 = Property.query.filter(Property.pid == pid).first()
-    query2 = Sells.query.filter(Sells.pid == pid).first()
+    query2 = Sells.query.filter(Sells.pid == pid).all()
     new_bid = request.form['bid']
     new_market_out = request.form['Market_out']
     new_year = request.form['year']
@@ -54,5 +54,7 @@ def buys(agent_id, pid):
         obj = Property.query.get(pid)
         obj.is_sold = 1
         db.session.commit()
-
-    return redirect(url_for(agent_dashboard, agent_id = query2.agent_id))
+    print(type(query2[0]))
+    return redirect(url_for(
+        'agent_dashboard',
+        agent_id = query2[0].agent_id))
