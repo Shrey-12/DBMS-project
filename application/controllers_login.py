@@ -31,7 +31,7 @@ def login(type):
             elif(type == "agent_office"):
                 return redirect(url_for('agency'))
             elif(type == "agent"):
-                return redirect(url_for('agent_selected', aid = id))
+                return redirect(url_for('agent_dashboard', agent_id = id))
         
         else:
             print("Try again")

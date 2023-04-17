@@ -174,6 +174,7 @@ header {
     height: 135px;
     background: #FFF;
     /* background: #201607; */
+    background: rgb(255, 255, 255, 0.95);
 
     border-radius: 0 10px 10px 10px;
     position: relative;
@@ -194,7 +195,8 @@ header {
     border-radius: 10px ;
     font-family: 'Noto Sans', sans-serif;
         font-family: 'PT Sans', sans-serif;
-        background: #fff;
+        background: #fff ;
+    background: rgb(255, 255, 255);
 }
 
 .card h5{
@@ -348,6 +350,7 @@ header {
     font-size: 3rem;
     font-weight: 500;
     margin-bottom: 3rem;
+    /* margin: 0 22%; */
 }
 
 table {
@@ -355,10 +358,16 @@ table {
     margin: 2rem auto;
     border-collapse: collapse;
     margin-bottom: 8rem;
+    /* background:  linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),var(--bg1);  */
+        
 }
 
 th{
     background-color :rgb(0, 0, 0,0.2);
+    background: rgb(95, 115, 138);
+    background: #ceab74;
+    /* background: rgb(26, 165, 171); */
+        /* background: linear-gradient(90deg, rgba(26, 165, 171, 1) 0%, rgba(14, 236, 218, 1) 50%, rgba(10, 160, 166, 1) 100%); */
     /* color: white; */
 }
 
@@ -371,10 +380,12 @@ td {
     /* Adds padding to table cells */
     /* border: 1px solid black; */
     /* border-radius: 5px; */
+        /* background: linear-gradient(90deg, rgba(66, 75, 75, 1) 0%, rgba(3, 3, 3, 1) 51%, rgba(62, 68, 68, 1) 100%); */
 }
 
 tr:nth-child(odd){
     background-color: rgb(240, 240, 240);
+    
 }
 
 

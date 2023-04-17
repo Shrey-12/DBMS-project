@@ -77,49 +77,34 @@
         <!-- add bootstrap carousel here -->
         <div id="carouselExample" class="carousel slide">
           <div class="carousel-inner">
-            <!-- add jinja loop here for all items -->
-            {%for agent in agents%}
-            <div class="carousel-item active c-item">
+            {% for agent in agents %}
+            <div class="carousel-item {% if loop.first %}active{% endif %} c-item">
               <div class="agent-info">
                 <div class="agent-image">
-                  <!-- checkout how to attatch images in jinja -->
-                  <img
-                    src="../static/images/background-2.jpg"
-                    class="d-block w-100 c-img"
-                    alt="..."
-                  />
+                  <img src="{{ url_for('static', filename='agent-images/a%d.jpg' % agent.agent_id) }}" class="d-block w-100 c-img" alt="...">
                 </div>
                 <div class="agent-name">
-                  <!-- jinja variables instead of these properties -->
-                  <h3>{{agent.agent_name}}</h3>
+                  <h3>{{ agent.agent_name }}</h3>
                 </div>
-                <p>Rating : {{agent.rating}}</p>
-                <p>Base Commision : {{agent.base_commission}}<br /></p>
+                <p>Rating: {{ agent.rating }}</p>
+                <p>Agent ID: {{ agent.agent_id }}</p>
+                <p>Area: {{ agent.area }}</p>
+                <p>Base Commission: {{ agent.base_commission }} % of SP<br /></p>
               </div>
             </div>
-            {%endfor%}
+            {% endfor %}
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-          >
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-          >
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        
         <!-- add bootstrap dropdown menu here -->
+        
         <div class="dropdown select-agent-class">
           <button
             class="btn btn-secondary dropdown-toggle select-agent"
@@ -130,11 +115,11 @@
             SELECT AGENT
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Choose an agent</a></li>
+            <li><a class="dropdown-item" href="#">Enter agent's ID in the provided field</a></li>
           </ul>
-        </div>
+        </div> 
+
       </div>
       <div class="property-form">
         <form method = POST action = "/owners/submit">
@@ -145,6 +130,14 @@
             maxlength="256"
             name="sid"
             placeholder="Login ID"
+            required
+          />
+          <div>
+            <input
+            type="number"
+            maxlength="256"
+            name="agent_id"
+            placeholder="Agent ID"
             required
           />
             <input
@@ -216,7 +209,7 @@
             type="text"
             maxlength="256"
             name="avail"
-            placeholder="Rent / Sale"
+            placeholder="rent / sale"
             required
           />
           </div>
