@@ -1,0 +1,35 @@
+import mysql.connector
+import matplotlib.pyplot as plt
+
+def bar_chart(labels, values):
+    plt.rcParams['font.family'] = 'Arial'
+    fig, ax = plt.subplots(figsize=(8,6), facecolor='#F5F5DC')
+    ax.bar(labels, values, color='#D2B48C')
+    ax.set_title('Sales Figures by the number of properties sold', fontsize=16, fontweight='bold')
+    ax.set_xlabel('Agent ID', fontsize=12,  fontweight='semibold')
+    ax.set_ylabel('Number of properties Rented and Sold', fontsize=12,   fontweight='semibold')
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    plt.xticks(rotation=45, ha='right', fontsize=10)
+    plt.tight_layout()
+    plt.show()
+
+
+# Connect to your SQL database
+conn = mysql.connector.connect(host="localhost", database="RealEstate", user="root", password="sindhu23_")
+
+# Create a cursor to execute SQL queries
+cursor = conn.cursor()
+query = "SELECT agent_id AS ID, (no_rented + no_sold) AS sales FROM agent;"
+
+# Execute the query and retrieve the data
+cursor.execute(query)
+results = cursor.fetchall()
+
+# Extract the labels and values from the results
+labels = [str(result[0]) for result in results]
+values = [result[1] for result in results]
+
+# Create the bar chart
+bar_chart(labels, values)
+
