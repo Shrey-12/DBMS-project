@@ -28,14 +28,14 @@ def home():
 
     if "url" not in session.keys() :
         home_og = text(
-            "SELECT * FROM property natural join sells natural join agent ")
+            "SELECT * FROM property natural join sells natural join agent where is_sold=0 and is_rented=0")
         results = db.session.execute(home_og).fetchall()
         return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
 
     elif session["url"] == 'submit':
         search_query = text(
             "SELECT * FROM property NATURAL JOIN sells NATURAL JOIN agent "
-            "WHERE property.area=:location AND ((sell_price BETWEEN :lower_price AND :upper_price) OR (rent_price BETWEEN :lower_price AND :upper_price)) AND no_bedrooms=:bedrooms AND area_sqft BETWEEN :min_area AND :max_area AND property.avail=:avail_prop"
+            "WHERE property.area=:location AND ((sell_price BETWEEN :lower_price AND :upper_price) OR (rent_price BETWEEN :lower_price AND :upper_price)) AND no_bedrooms=:bedrooms AND area_sqft BETWEEN :min_area AND :max_area AND property.avail=:avail_prop AND is_sold=0 and is_rented=0"
         )
         search_params = {
             'location': session.get('location', ''),
@@ -44,7 +44,7 @@ def home():
             'bedrooms': session.get('bedrooms', ''),
             'min_area': session.get('min_area', 0),
             'max_area': session.get('max_area', float('inf')),
-            'avail_prop': session.get('avail_prop', '')
+            'avail_prop': session.get('avail_prop', ''),
         }
         results = db.session.execute(search_query, search_params).fetchall()
         session.pop('location')
@@ -60,7 +60,7 @@ def home():
     elif session['url'] == 'Asylum Hill':
         search_query = text(
             "SELECT * FROM property NATURAL JOIN sells NATURAL JOIN agent "
-            "WHERE property.area=:location"
+            "WHERE property.area=:location AND is_sold=0 AND is_rented=0"
         )
         search_params = {
         'location': 'Asylum Hill'
@@ -73,7 +73,7 @@ def home():
     elif session['url'] == 'Blue Hills':
         search_query = text(
             "SELECT * FROM property NATURAL JOIN sells NATURAL JOIN agent "
-            "WHERE property.area=:location"
+            "WHERE property.area=:location AND is_sold=0 AND is_rented=0"
         )
         search_params = {
             'location': 'Blue Hills'
@@ -86,7 +86,7 @@ def home():
     elif session['url'] == 'Barry Square':
         search_query = text(
             "SELECT * FROM property NATURAL JOIN sells NATURAL JOIN agent "
-            "WHERE property.area=:location"
+            "WHERE property.area=:location AND is_sold=0 AND is_rented=0"
         )
         search_params = {
             'location': 'Barry Square'
