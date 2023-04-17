@@ -10,12 +10,13 @@ from application.controllers_agentDashboard import *
 
 @app.route('/agent/<aid>')
 def agent_selected(aid):
+    
     query = text("SELECT * FROM agent WHERE agent_id= :id")
     search_params1 = {
         'id': aid
     }
     results1 = db.session.execute(query, search_params1).fetchall()
-
+    aname = results1[0].agent_name.lower().replace(" ", "")
     query_search = text(
         """WITH prop(pid) AS
         (SELECT pid FROM sells WHERE agent_id = :id)
@@ -26,4 +27,4 @@ def agent_selected(aid):
     }
     results2 = db.session.execute(query_search, search_params2).fetchall()
 
-    return render_template("agentinfo_dashboard.html", agent=results1[0], homes=results2)
+    return render_template("agentinfo_dashboard.html", anames = aname,agent=results1[0], homes=results2)
