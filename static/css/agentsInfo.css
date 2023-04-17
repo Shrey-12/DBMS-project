@@ -223,11 +223,23 @@ header {
   position: relative;
   padding: 1.5rem 2.5rem;
 }
+.userDetails .userName{
+  justify-content: space-between;
+}
 
 .userDetails .userName h1 {
   font-size: 2.7rem;
+  display: inline-block;
 }
 
+.userDetails .userName span{
+  background:#5cb6d3;
+  outline: 1px solid black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  float: right;
+}
 .userDetails .userName p {
   font-size: 1.2rem;
   font-weight: 700;
