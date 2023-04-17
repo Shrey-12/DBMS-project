@@ -173,6 +173,7 @@ header {
     /* width: 70% ; */
     height: 135px;
     background: #FFF;
+    /* background: #201607; */
     border-radius: 0 10px 10px 10px;
     position: relative;
     padding: 10px 20px;
@@ -191,13 +192,14 @@ header {
     border: 2px solid rgb(226,226,226,0.7);
     border-radius: 10px ;
     font-family: 'Noto Sans', sans-serif;
-    font-family: 'Anonymous Pro', monospace;
-        font-family: 'Josefin Sans', sans-serif;
-        font-family: 'Noto Sans', sans-serif;
-        font-family: 'Noto Sans JP', sans-serif;
-        font-family: 'Open Sans', sans-serif;
-        font-family: 'Poppins', sans-serif;
+    /* font-family: 'Anonymous Pro', monospace; */
+        /* font-family: 'Josefin Sans', sans-serif; */
+        /* font-family: 'Noto Sans', sans-serif; */
+        /* font-family: 'Noto Sans JP', sans-serif; */
+        /* font-family: 'Open Sans', sans-serif; */
+        /* font-family: 'Poppins', sans-serif; */
         font-family: 'PT Sans', sans-serif;
+        background: #fff;
 }
 
 .card h5{
@@ -220,7 +222,7 @@ header {
 }
 
 .container{
-    margin: 5rem 4rem;
+    margin: 12rem 4rem;
     align-items: center;
     text-align: center;
     display: flex;
@@ -254,6 +256,31 @@ header {
     background: black;
     bottom: -8px; 
     left: 0;  
+}
+
+.featured-h2,
+.featured-h2>span {
+    color: #ceab74;
+    font-family: "Cinzel", sans-serif;
+    font-weight: 300;
+    line-height: 1.2;
+    font-size: 2.5rem;
+    margin: 0px 0 30px;
+    text-align: center;
+}
+
+.featured-h2>span {
+    color: #000;
+}
+
+.featured-heading {
+    margin: 50px 0px 0px 0px;
+}
+
+.featured-h2 {
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-bottom: 3rem;
 }
 
 
@@ -312,7 +339,7 @@ header {
     /* position: relative; */
     align-items: center;
     text-align: center;
-    margin-top: 15rem;
+    /* margin-top: 15rem; */
     /* outline: 1px solid; */
 }
 
