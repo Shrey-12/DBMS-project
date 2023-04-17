@@ -6,7 +6,7 @@ from sqlalchemy import text
 
 
 
-@app.route("/buyer", methods=["GET", "POST"])
+@app.route("/login/buyer", methods=["GET", "POST"])
 def home():
     print("Hello")
     '''home_og = Property.query.all()'''
@@ -100,7 +100,7 @@ def home():
 
     
 
-@app.route('/buyer/submit', methods=['POST'])
+@app.route('/login/buyer/submit', methods=['POST', 'GET'])
 def submit():
     session['url']= "submit"
     location = request.form['location']
@@ -123,11 +123,11 @@ def submit():
         min_area, max_area = map(int, area_range.split('-'))
         session['min_area'] = min_area
         session['max_area'] = max_area
-
+    
     return redirect(url_for('home'))
 
 
-@app.route('/buyer/Asylum Hill')
+@app.route('/login/buyer/Asylum Hill')
 def asylum_hill():
     session['url'] = 'Asylum Hill'
     session['location'] = 'Asylum Hill'
@@ -135,13 +135,13 @@ def asylum_hill():
     return redirect(url_for('home'))
 
 
-@app.route('/buyer/Barry Square')
+@app.route('/login/buyer/Barry Square')
 def barry_square():
     session['url'] = 'Barry Square'
     session['location'] = 'Barry Square'
     return redirect(url_for('home'))
 
-@app.route('/buyer/Blue Hills')
+@app.route('/login/buyer/Blue Hills')
 def blue_hils():
     session['url'] = 'Blue Hills'
     session['location'] = 'Blue Hills'
@@ -162,7 +162,7 @@ def agency():
     result_agent1 = db.session.execute(query)
     return render_template('agentoffice.html', agents = result_agent, homes = result_agent1)
 '''
-@app.route("/buyer/<name>")
+@app.route("/login/buyer/<name>")
 def connect(name):
     query = text("SELECT * FROM agent WHERE agent_name= :aname")
     search_params1 = {
