@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
 /**{
     margin: 0;
     padding: 0;
@@ -144,7 +145,7 @@ body {
         /* font-family: 'Open Sans', sans-serif; */
         /* font-family: 'PT Sans', sans-serif; */
     /* letter-spacing: 1px; */
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     position: relative;
     margin-top: 1rem;
     color: white;
@@ -159,21 +160,22 @@ body {
     bottom: -6px ;
     background-color: black;
     background-color: white;
-    margin-top: 0.rem;
+    margin-top: 0rem;
 }
 .login-form h2{
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin: 2rem 0;
     font-family: 'Noto Sans', sans-serif;
-    margin-top: 3rem;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
 }
 
 
 .form input[type=text],
 .form input[type=password] {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     border: none;
     border-radius: 20px;
     margin-bottom: 20px;
@@ -186,7 +188,7 @@ body {
     background-color: #0a0b0a;
     /* background-color: rgba(67, 50, 6, 0.3); */
     color: #fff;
-    padding: 10px;
+    padding: 15px;
     border: none;
     border-radius: 25px;
     font-size: 1.2rem;
