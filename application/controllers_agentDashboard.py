@@ -7,6 +7,7 @@ from sqlalchemy import or_,and_, text
 
 @app.route("/agent/<agent_id>/dashboard")
 def agent_dashboard(agent_id):
+    session['agent_id'] = agent_id
     soldProperties = (
         Property.query.join(Sells, Sells.pid == Property.pid)
         .filter(Property.pid == Sells.pid)
@@ -29,7 +30,9 @@ def agent_dashboard(agent_id):
 
 
 @app.route('/agent/<agent_id>/dashboard/<pid>', methods= ['POST'])
-def buys(pid):
+def buys(agent_id, pid):
+    query1 = Property.query.filter(Property.pid == pid).first()
+    query2 = Sells.query.filter(Sells.pid == pid).first()
     new_bid = request.form['bid']
     new_market_out = request.form['Market_out']
     new_year = request.form['year']
@@ -37,11 +40,19 @@ def buys(pid):
     new_buys= Buys(
         bid = new_bid,
         pid = new_pid,
-        year = new_year,
+        year_sold = new_year,
         market_out = new_market_out
 
     )
     db.session.add(new_buys)
     db.session.commit()
+    if(query1.avail == "rent"):
+        obj = Property.query.get(pid)
+        obj.is_rented = 1
+        db.session.commit()
+    elif(query1.avail == "sale"):
+        obj = Property.query.get(pid)
+        obj.is_sold = 1
+        db.session.commit()
 
-
+    return redirect(url_for(agent_dashboard, agent_id = query2.agent_id))

@@ -131,7 +131,7 @@
             <td class="area_sqft">
               <h5>{{property.area_sqft}}</h5>
             </td>
-             <form method="POST" action="/agent/{{agent_id}}/dashboard/{{property.pid}}">
+             <form method="POST" action="{{url_for('buys', agent_id = session['agent_id'], pid = property.pid)}}">
               <input
               type="number"
               maxlength="256"

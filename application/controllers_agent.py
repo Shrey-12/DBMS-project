@@ -26,4 +26,4 @@ def agent_selected(aid):
     }
     results2 = db.session.execute(query_search, search_params2).fetchall()
 
-    return render_template("agent_interface.html", agent=results1[0], homes=results2)
+    return render_template("agentinfo_dashboard.html", agent=results1[0], homes=results2)
