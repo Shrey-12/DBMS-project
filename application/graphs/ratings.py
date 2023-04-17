@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 def bar_chart(labels, values):
     plt.rcParams['font.family'] = 'Arial'
-    fig, ax = plt.subplots(figsize=(8,6), facecolor='#F5F5DC')
-    ax.bar(labels, values, color='#D2B48C')
+    fig, ax = plt.subplots(figsize=(8,6), facecolor='c')
+    ax.bar(labels, values, color='#202020')
     ax.set_title('Sales Figures by the Ratings', fontsize=16, fontweight='bold')
     ax.set_xlabel('Agent ID', fontsize=12,  fontweight='semibold')
     ax.set_ylabel('Customer Rating', fontsize=12,   fontweight='semibold')
