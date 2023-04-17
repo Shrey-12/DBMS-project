@@ -20,7 +20,7 @@ def agent_selected(aid):
     query_search = text(
         """WITH prop(pid) AS
         (SELECT pid FROM sells WHERE agent_id = :id)
-        SELECT * FROM buys NATURAL JOIN prop NATURAL JOIN property;"""
+        SELECT * FROM prop NATURAL JOIN property where is_rented = 1 or is_sold = 1;"""
     )
     search_params2 = {
         'id': aid

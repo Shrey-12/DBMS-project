@@ -149,12 +149,26 @@ def blue_hils():
 
 @app.route('/login/buyer/SoldProperties')
 def sold_properties():
+    search_query1 = text(
+        "SELECT DISTINCT area FROM property order by area"
+    )
+    results1 = db.session.execute(search_query1).fetchall()
+
+    search_query2 = text(
+        "SELECT DISTINCT no_bedrooms FROM property order by no_bedrooms"
+    )
+    results2 = db.session.execute(search_query2).fetchall()
+
+    search_query3 = text(
+        "SELECT DISTINCT area_sqft FROM property order by area_sqft"
+    )
+    results3 = db.session.execute(search_query3).fetchall()
     search_query = text(
                 "SELECT * FROM property NATURAL JOIN sells NATURAL JOIN agent "
                 "WHERE is_sold=1 OR is_rented=1"
             )
     results = db.session.execute(search_query).fetchall()
-    return render_template('house_listing.html', homes=results)
+    return render_template('house_listing.html', homes=results, loc=results1, loc1=results2, loc2=results3)
     
 
 

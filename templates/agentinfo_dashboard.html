@@ -172,7 +172,8 @@
         <h1>SALES REPORT</h1>
         <table>
             <tr>
-                <th>Sales Date</th>
+                <th>Property id</th>
+                
                 <th>Street</th>
                 <th>Availability</th>
                 <th>Rent price</th>
@@ -180,7 +181,8 @@
             </tr>
             {% for home in homes %}
             <tr>
-                <td>{{home.market_out}}</td>
+                <td>{{home.pid}}</td>
+                
                 <td>{{home.street}}</td>
                 <td>{{home.avail}}</td>
                 <td>{{home.rent_price}}</td>
