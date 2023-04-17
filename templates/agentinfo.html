@@ -54,8 +54,6 @@
             <img
               src="{{ url_for('static', filename='agent-images/a%d.jpg' % agent.agent_id) }}"
               alt="profile"
-              width="250px"
-              height="250px"
             />
           </figure>
         </div>
@@ -112,6 +110,7 @@
       <section class="userDetails card">
         <div class="userName">
           <h1 class="name">{{agent.agent_name}}</h1>
+          <!-- <span>Agent Dashboard</span> -->
           <p>Real Estate agent</p>
         </div>
 

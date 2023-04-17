@@ -108,12 +108,12 @@ header {
 }
 
 .container header .Logo figure img {
-  width: 5rem;
-  height: 4rem;
+  width: 7rem;
+  height: 5rem;
 }
 
 .container header .Logo span {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin: 0 0 0 1.5rem;
 }
@@ -133,8 +133,8 @@ header {
 }
 
 .container .userProfile .profile figure img {
-  width: 18rem;
-  height: 18rem;
+  width: 20rem;
+  height: 20rem;
   border-radius: 50%;
 }
 
@@ -177,17 +177,20 @@ header {
     display: flex;
     position: relative;
     margin: 1rem 0;
+    /* outline: 2px solid black; */
 }
 .work_skills .work ul li h1{
     /* margin-left: 1rem; */
     /* outline: 2px solid orange; */
-    min-width: 8rem;
+    min-width: 10rem;
+    font-size: 1.6rem;
 }
 .work_skills span{
     /* outline: 2px solid ; */
+    font-size: 1.6rem;
 }
 .work_skills ul{
-    margin-bottom: 2rem;;
+    margin-bottom: 2rem;
 }
 .work .mail span{
     color: #5cb6d3;
@@ -198,8 +201,8 @@ header {
     text-align: center;
 }
 .work .social a {
-    height: 38px;
-    width: 38px;
+    height: 42px;
+    width: 42px;
     color: #0099cc;
     background: #f1f0f0;
     display: inline-flex;
@@ -212,7 +215,7 @@ header {
 }
 
 .work .social i{
-    font-size: 20px;
+    font-size: 25px;
 }
 .social a:hover {
     transform: scale(1.1);
@@ -241,7 +244,7 @@ header {
   float: right;
 }
 .userDetails .userName p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #0099cc;
   margin-bottom: 1.8rem;
@@ -253,7 +256,11 @@ header {
 }
 .userDetails .agent_info ul li h1{
     width: 100%;
-    max-width: 20rem;
+    max-width: 22rem;
+}
+
+.userDetails .agent_info ul li h1 ,span{
+  font-size: 1.6rem;
 }
 
 .userDetails .agent_info ul .stars i{
@@ -301,8 +308,8 @@ header {
     background-color: #fff;
     /* background-color: hsl(0, 0%, 98%)rgb(249, 249, 249); */
     border: 1.5px solid #f0eded;
-    height: 140px;
-    width: 140px;
+    height: 160px;
+    width: 160px;
     padding: 10px;
     border-radius: 4px;
     transition: all 1s ease 0s;
@@ -312,6 +319,12 @@ header {
     /* transform: scale(1.1); */
 }
 
+.box h2 , p{
+  font-size: 1.6rem;
+}
+.box h2{
+  margin: 0.5rem 0;
+}
 .box img {
     height: 85px;
     /* padding: 10px; */
