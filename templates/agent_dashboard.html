@@ -131,10 +131,33 @@
             <td class="area_sqft">
               <h5>{{property.area_sqft}}</h5>
             </td>
-
-            <td class="Action">
+             <form method="POST" action="/agent/{{agent_id}}/dashboard/{{property.pid}}">
+              <input
+              type="number"
+              maxlength="256"
+              name="bid"
+              placeholder="Buyer_id"
+              required
+            />
+             <input
+              type="number"
+              maxlength="256"
+              name="year"
+              placeholder="Year of sale/rent"
+              required
+            />
+            <input
+              type="date"
+              maxlength="256"
+              name="Market_out"
+              placeholder="Date of Sell(YYYY-MM-DD)"
+              required
+            />
+              <td class="Action">
               <button class="btn btn-primary">Mark as Sold</button>
-            </td>
+              </td>
+             </form>
+           
           </tr>
           {% endfor%}
         </tbody>
