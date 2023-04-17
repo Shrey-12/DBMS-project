@@ -147,6 +147,18 @@ def blue_hils():
     session['location'] = 'Blue Hills'
     return redirect(url_for('home'))
 
+@app.route('/login/buyer/SoldProperties')
+def sold_properties():
+    search_query = text(
+                "SELECT * FROM property NATURAL JOIN sells NATURAL JOIN agent "
+                "WHERE is_sold=1 OR is_rented=1"
+            )
+    results = db.session.execute(search_query).fetchall()
+    return render_template('house_listing.html', homes=results)
+    
+
+
+
 
 '''@app.route('/buyer/owners')
 def owners():
