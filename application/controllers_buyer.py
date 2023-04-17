@@ -181,8 +181,8 @@ def connect(name):
         'aname': name
     }
     results1 = db.session.execute(query, search_params1).fetchall()
-
-    return render_template('agentinfo.html',agent = results1[0])
+    a_name = results1[0].agent_name.lower().replace(" ", "")
+    return render_template('agentinfo.html',anames = a_name, agent = results1[0])
 
 '''@app.route('/submit', methods=['POST'])
 def submit():
